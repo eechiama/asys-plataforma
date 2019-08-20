@@ -1,0 +1,30 @@
+Communication protocol
+======================
+
+Data and commands are sent from the uController to MATLAB and vice-versa.
+
+data format:        %data#
+
+- uC Cortex M3
+ADC sample is 12bits, so data is two bytes long.
+The first one corresponds to the most significant bits.
+
+command format:     $command#
+
+List of commands
+================
+
+M1          starts sampling
+M0          stops sampling
+
+T1          asks for test signal no. 1 (ecg1)
+T2          asks for test signal no. 2 (ecg2)
+T3          asks for test signal no. 3 (ecg2 + rand(1,5))
+            (T3 is not implemented on kit Infotronic)
+
+C,XXXX.     configures the sample frequency
+            XXXX can be 2, 3 or 4 digits
+
+I,X.        configures the ADC's input channel for the kit Infotronic.
+            X = 0, 1 or 2
+            (Arduino inputs from pin A0 only, this command is not implemented)

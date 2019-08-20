@@ -14,7 +14,7 @@ addpath('funciones')
 
 muestras=[];
 
-info.MedianaSize = 10;
+info.MedianaSize = 1;
 
 info.SerialOpened = 0;
 info.Sampling = 0;
@@ -90,4 +90,3 @@ while 1
     end
     
 end
-

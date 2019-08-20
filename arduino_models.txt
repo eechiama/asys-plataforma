@@ -1,9 +1,12 @@
-Química
--------
-arduino uno
-atmega328
+Química: arduino uno
+Leandro: arduino nano
+También lo probé en el GIBIO con un arduino MEGA.
 
-Leandro
--------
-arduino nano
-atmega328p
+Arduino UNO Rev3
+uCont.: ATmega328P
+
+Arduino Nano
+uCont.: ATmega328
+
+Arduino Mega 2560 Rev3
+uCont.: ATmega2560
