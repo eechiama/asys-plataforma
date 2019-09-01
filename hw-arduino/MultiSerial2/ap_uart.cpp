@@ -21,6 +21,7 @@ const int MAX_TRAMA_RX = 8;
 /* =================================== */
 volatile uint8_t command = NO_COMMAND;
 volatile uint16_t rx_fmuestreo = 2500;
+volatile uint8_t rx_pwm_divider = 1;
 
 /* ======= private prototypes ======== */
 /* =================================== */
@@ -87,6 +88,42 @@ void leer_comandos( const char trama[] ){
     }    
   }
 
+  // Comando para activar la salida de PWM con una señal modulada
+  // Formato: P1,X,YY.
+  // Donde X refiere al tipo de señal. S = seno, R = rampa, H = HIGH (continua, valor lógico alto)
+  if( (trama[0] == 'P') && (trama[1] == '1') && (trama[2] == ',') && (trama[4] == ',') ){
+    digitos = 1;
+    if( trama[6] != '.' ) digitos++;
+
+    if( digitos == 1 ){
+      rx_pwm_divider = trama[5]-48;
+    }
+    if( digitos == 2 ){
+      rx_pwm_divider = ( trama[5]-48 ) * 10 + (trama[6]-48);
+    }
+    
+    if( trama[3] == 'S' ){
+      command = PWM_SINE;
+    }
+    if( trama[3] == 'R' ){
+      command = PWM_RAMP;
+    }
+    if( trama[3] == 'H' ){
+      command = PWM_HIGH;
+    }
+    if( trama[3] == 'Q' ){
+      command = PWM_SQUARE;
+    }
+    if( trama[3] == 'E' ){
+      command = PWM_ECG;
+    }
+  }
+
+  // Comando para desactivar la salida de PWM
+  // Formato: P0
+  if( (trama[0] == 'P') && (trama[1] == '0') ){
+    command = PWM_OFF;
+  }
 }
 
 /* ======== public functions ========= */
@@ -109,17 +146,20 @@ void RX_Mensajes(void){
           break;
             
         case RECIBIENDO_TRAMA:
-        // caso: en medio de la trama
-         if( inByte != SYMBOL_END_OF_WORD){
-          trama_rx[inx_msg_rx] = inByte;
-          inx_msg_rx++;
-          if (inx_msg_rx > MAX_TRAMA_RX-1){ // PROTECCIÓN OVERFLOW. TRAMA QUE LLEGó AL MÁXIMO DE 8 BYTES SIN CARACTER DE FIN
+          // caso: en medio de la trama
+         if( inByte != SYMBOL_END_OF_WORD ){
+          
+          if (inx_msg_rx >= MAX_TRAMA_RX){   // PROTECCIÓN OVERFLOW. TRAMA QUE SUPERÓ EL MÁXIMO DE 8 BYTES SIN CARACTER DE FIN
             estado_rx = ESPERANDO_TRAMA;
+            break;
           }
-          break;
+          else{        
+            trama_rx[inx_msg_rx] = inByte;
+            inx_msg_rx++;
+          }
          }
          // caso: fin de la trama
-         if(inByte == SYMBOL_END_OF_WORD){
+         if( inByte == SYMBOL_END_OF_WORD ){
           leer_comandos(trama_rx);
           estado_rx = ESPERANDO_TRAMA;              
           }

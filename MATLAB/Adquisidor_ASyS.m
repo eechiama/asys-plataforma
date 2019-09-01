@@ -14,29 +14,42 @@ addpath('funciones')
 
 muestras=[];
 
-info.MedianaSize = 1;
+% Mode ADC
+% Frequency
+modeADC.FsToSet = '2500';
+modeADC.FsActual = '2500';
+modeADC.FsActual_ARDUINO = '2500';
+% Input
+modeADC.EAActual = '2';
+modeADC.EAToSet = 'EA2';
 
+% Mode Generator
+modeGEN.signal = 'rampa'; % default
+modeGEN.divider = '1';
+%
+%
+%
+
+% gui status flags
 info.SerialOpened = 0;
 info.Sampling = 0;
 info.TestSignal = 0;
+info.Generator = 0;
 
-info.FsToSet = '2500';
-info.FsActual = '2500';
-info.FsActual_ARDUINO = '2500';
-
-info.EAActual = '2';
-info.EAToSet = 'EA2';
-
+% plot information
 info.FirstPlot = 1;
-
+% plot config
+info.MedianaSize = 1;
 info.InputBufferBytes = 0;
-info.SamplesToRead_M3 = ( str2double(info.FsActual) / info.MedianaSize ) / 5;
-info.SamplesToRead_ARDUINO = ( str2double(info.FsActual_ARDUINO) / info.MedianaSize ) / 5;
-
+info.SamplesToRead_M3 = ( str2double(modeADC.FsActual) / info.MedianaSize ) / 5;
+info.SamplesToRead_ARDUINO = ( str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize ) / 5;
 info.SamplesToRead = info.SamplesToRead_M3; % default es el cortex
 
+% Save the data
 hs = Gui_Start();
 setappdata(hs.Figure,'info',info);
+setappdata(hs.Figure,'modeADC',modeADC);
+setappdata(hs.Figure,'modeGEN',modeGEN);
 setappdata(hs.Figure,'muestras',muestras);
 guidata(hs.Figure,hs);
 

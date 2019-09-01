@@ -7,15 +7,16 @@ INTERVALO = 5;  % variable para agrandar el eje de tiempo, segundos
 
 info = getappdata(hs.Figure,'info');
 muestras = getappdata(hs.Figure,'muestras');
+modeADC = getappdata(hs.Figure,'modeADC');
 
 RadioButton = get(hs.ButGroup_Plataforma,'selectedobject');
 
 if(RadioButton == hs.RadioBut_Infotronic)
-    Fs = str2double(info.FsActual) / info.MedianaSize;
+    Fs = str2double(modeADC.FsActual) / info.MedianaSize;
 end
 
 if(RadioButton == hs.RadioBut_Arduino)
-    Fs = str2double(info.FsActual_ARDUINO) / info.MedianaSize;
+    Fs = str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize;
 end
 
 ll=length(muestras);

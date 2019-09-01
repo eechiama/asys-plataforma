@@ -1,0 +1,25 @@
+Primitivas/PR_LCD.o Primitivas/PR_LCD.d: ../Primitivas/PR_LCD.c \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Primitivas/inc/PR_LCD.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/Regs_LPC176x.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_Tipos.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/FW_LCD.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/Regs_LPC176x.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_GPIO.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_PINSEL.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/KitInfo2.h
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Primitivas/inc/PR_LCD.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/Regs_LPC176x.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_Tipos.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/FW_LCD.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/Regs_LPC176x.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_GPIO.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_PINSEL.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/KitInfo2.h:

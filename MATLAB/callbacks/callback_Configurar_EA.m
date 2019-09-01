@@ -2,6 +2,7 @@ function callback_Configurar_EA(hObj, event)
 
 hs = guidata(hObj.Parent);
 info = getappdata(hs.Figure,'info');
+modeADC = getappdata(hs.Figure,'modeADC');
 
 % si no hay serial port abierto
 if info.SerialOpened==0
@@ -13,7 +14,7 @@ end
 if info.Sampling == 0
     
     % preparo el comando
-    aux = info.EAToSet(end);
+    aux = modeADC.EAToSet(end);
     string_command = '$I,';
     string_command = strcat(string_command, aux);
     string_command = strcat(string_command,'.#');
@@ -22,18 +23,17 @@ if info.Sampling == 0
     fprintf(hs.Serial, string_command);
     
     % actualizo la EAActual
-    info.EAActual = info.EAToSet;
+    modeADC.EAActual = modeADC.EAToSet;
     
     % Actualizar datos
     setappdata(hs.Figure,'info',info);
+    setappdata(hs.Figure,'modeADC',modeADC);
     guidata(hObj.Parent,hs);
     
     % Actualizo el DisplayConfigString
-    info = UpdateConfigString(1,hObj);
+    UpdateConfigString(1,hObj);
     
     msgbox('Configuración realizada.');
 end
-
-info
 
 end

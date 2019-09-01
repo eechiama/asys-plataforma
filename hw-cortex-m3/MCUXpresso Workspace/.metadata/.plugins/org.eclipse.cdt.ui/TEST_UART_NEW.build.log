@@ -1,0 +1,6 @@
+14:38:22 **** Incremental Build of configuration Debug for project TEST_UART_NEW ****
+make -r -j4 all 
+make: Nothing to be done for 'all'.
+
+14:38:23 Build Finished (took 570ms)
+

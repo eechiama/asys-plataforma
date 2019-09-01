@@ -1,7 +1,8 @@
-function ans = UpdateConfigString(caller, hObj)
+function UpdateConfigString(caller, hObj)
 
     hs = guidata(hObj);
     info = getappdata(hs.Figure,'info');
+    modeADC = getappdata(hs.Figure,'modeADC');
     
     % Obtengo información de la plataforma seleccionada actualmente
     plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
@@ -13,7 +14,7 @@ function ans = UpdateConfigString(caller, hObj)
         aux_EA = aux_EA{val_EA};
         aux_EA = aux_EA(end);
         
-        aux_Fs = info.FsActual;
+        aux_Fs = modeADC.FsActual;
     end
         
     if(caller==2)
@@ -24,7 +25,7 @@ function ans = UpdateConfigString(caller, hObj)
         aux_Fs = aux_Fs{val_Fs};
         
         if(plataforma == hs.RadioBut_Infotronic)
-            aux_EA = info.EAActual;
+            aux_EA = modeADC.EAActual;
             aux_EA = aux_EA(end);
         end
 
@@ -52,10 +53,8 @@ function ans = UpdateConfigString(caller, hObj)
     end
     
     setappdata(hs.Figure,'info',info);    
-    
+    setappdata(hs.Figure,'modeADC', modeADC);
     guidata(hObj, hs);
-    
-    ans = info;
 end
 
 % Este callback actualiza la string que muestra la configuración actual.

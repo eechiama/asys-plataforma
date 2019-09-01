@@ -1,6 +1,6 @@
-=======
-Arduino
-=======
+==========
+ATmega328p
+==========
 
 file:   ap_filtro.h
 
@@ -10,6 +10,7 @@ Uncomment/comment the line '#define FILTER'
 * Modify the amount of samples taken before applying the median filter
 'const byte BUFSIZE = x'
 NOTE: x must be an even number >= 4
+
 
 =========
 Cortex M3
@@ -24,6 +25,7 @@ constant:   #define SIZE
 * To modify the amount of samples taken before applying the median filter set
 SIZE to your liking.
 NOTE: it must be an even number >= 4
+
 
 =============
 MATLAB Script

@@ -1,30 +1,57 @@
 Communication protocol
-======================
+=======================
 
 Data and commands are sent from the uController to MATLAB and vice-versa.
 
 data format:        %data#
 
-- uC Cortex M3
-ADC sample is 12bits, so data is two bytes long.
-The first one corresponds to the most significant bits.
+For both micros data is 2 bytes long. The first one corresponds to the most
+significant bits.
+
+- uC Cortex M3: ADC 12bits
+- uC ATmega328p: ADC 10bits
+
 
 command format:     $command#
 
-List of commands
-================
+
+commands common for both uC
+===========================
 
 M1          starts sampling
 M0          stops sampling
 
-T1          asks for test signal no. 1 (ecg1)
-T2          asks for test signal no. 2 (ecg2)
-T3          asks for test signal no. 3 (ecg2 + rand(1,5))
-            (T3 is not implemented on kit Infotronic)
-
 C,XXXX.     configures the sample frequency
             XXXX can be 2, 3 or 4 digits
 
+T1          asks for test signal no. 1 (ecg1)
+T2          asks for test signal no. 2 (ecg2)
+
+
+commands exclusive to the cortex-m3
+====================================
+
 I,X.        configures the ADC's input channel for the kit Infotronic.
             X = 0, 1 or 2
-            (Arduino inputs from pin A0 only, this command is not implemented)
+
+
+commands exclusive to the ATmega328p
+====================================
+
+T3          asks for test signal no. 3 (ecg2 + rand(1,5))
+
+P1,X,YY.    activates PWM output
+            with modulated waveform X,
+            with it's frequency divided by YY (can be 1 or 2 digits)
+
+            The waveforms (X) can be:
+            S   sine wave 500Hz
+            Q   square wave 500Hz
+            R   ramp function 245Hz
+            H   logic HIGH voltage
+            E   electro-cardiogram (test signal ECG2)
+
+            Frequency divisor YY can be 1 or 2 digits long.
+            It should be a number on the range of [1-99].
+
+P0          turns off the PWM output.

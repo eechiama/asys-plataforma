@@ -1,0 +1,10 @@
+Drivers/DR_PINSEL.o Drivers/DR_PINSEL.d: ../Drivers/DR_PINSEL.c \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_PINSEL.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/Regs_LPC176x.h \
+ /home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_Tipos.h
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_PINSEL.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/Regs_LPC176x.h:
+
+/home/stv/UTN\ FRBA/materias/asys/asys_2018-19/TPO\ Integrador\ -\ Nuevo/Development/MCUXpresso\ Workspace/TEST_UART_NEW/Drivers/inc/DR_Tipos.h:

@@ -2,16 +2,17 @@ function callback_update_plot(hObj, event)
 
 hs = guidata(hObj.Parent);
 info = getappdata(hs.Figure,'info');
+modeADC = getappdata(hs.Figure,'modeADC');
 muestras = getappdata(hs.Figure,'muestras');
 
 RadioButton = get(hs.ButGroup_Plataforma,'selectedobject');
 
 if(RadioButton == hs.RadioBut_Infotronic)
-    Fs = str2double(info.FsActual) / info.MedianaSize;
+    Fs = str2double(modeADC.FsActual) / info.MedianaSize;
 end
 
 if(RadioButton == hs.RadioBut_Arduino)
-    Fs = str2double(info.FsActual_ARDUINO) / info.MedianaSize;
+    Fs = str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize;
 end
 
 ll=length(muestras);

@@ -23,7 +23,6 @@ const int TX_DONE = 1;
 
 /* ==== private global variables ===== */
 /* =================================== */
-
 static volatile uint32_t estado_medidor = MEDIDOR_RESET;
 
 /* ==== shared global variables ====== */
@@ -31,7 +30,6 @@ static volatile uint32_t estado_medidor = MEDIDOR_RESET;
 
 /* ======= private prototypes ======== */
 /* =================================== */
-
 uint8_t tx_Test_Signal_1( void );
 uint8_t tx_Test_Signal_2( void );
 uint8_t tx_Test_Signal_3( void );

@@ -1,0 +1,45 @@
+1542121511080	Delete resource 'TEST_UART_NEW/drivers_lpc1769/src/FW_DAC.c'
+1542121516103	Delete 3 resources
+1542121524091	Delete resource 'TEST_UART_NEW/drivers_lpc1769/src/FW_UART.c'
+1542121527529	Delete 2 resources
+1542121534197	Delete resource 'TEST_UART_NEW/drivers_lpc1769/src'
+1542121545989	Delete 6 resources
+1542121601839	Delete 4 resources
+1542121605327	Delete 3 resources
+1542121631085	Delete resource 'TEST_UART_NEW/drivers_infotronic'
+1542121766206	Delete 2 resources
+1542121845708	Delete resource 'TEST_UART_NEW/Drivers/FW_SysTick.c'
+1542121849451	Delete resource 'TEST_UART_NEW/Drivers/inc/FW_SysTick.h'
+1542121955615	Delete resource 'LPC1769-ADC-SERIAL'
+1542122084733	Delete resource 'TEST_UART_NEW/Primitivas/src/PR_Teclado.c'
+1542122147667	Delete resource 'TEST_UART_NEW/Primitivas/src/PR_Serie.c'
+1542122155880	Delete resource 'TEST_UART_NEW/Primitivas/inc/PR_Serie.h'
+1542122157679	Delete resource 'TEST_UART_NEW/Primitivas/inc/PR_Teclado.h'
+1542123374479	Delete resource 'TEST_UART_NEW/Primitivas/inc/PR_LCD.h'
+1542123418953	Delete resource 'TEST_UART_NEW/Primitivas/src'
+1542123679003	Delete resource 'TEST_UART_NEW/Aplicacion/src'
+1542124388042	Delete 3 resources
+1542126840177	Delete 3 resources
+1542127003518	Delete 2 resources
+1542127007022	Delete resource 'TEST_UART_NEW/Debug'
+1542142010745	Delete 3 resources
+1542369000696	Delete resource 'TEST_UART_NEW/Debug'
+1542369003427	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Release.launch'
+1542369005466	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Debug.launch'
+1542369164061	Delete resource 'TEST_UART_NEW/Debug'
+1542369165744	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Release.launch'
+1542369168099	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Debug.launch'
+1542369229198	Delete resource 'TEST_UART_NEW/Debug'
+1542369231495	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Debug.launch'
+1542369233444	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Release.launch'
+1542369391047	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Release.launch'
+1542369393522	Delete resource 'TEST_UART_NEW/Debug'
+1542369395746	Delete resource 'TEST_UART_NEW/TEST_UART_NEW LinkServer Debug.launch'
+1542396194360	Delete resource 'TEST_UART_NEW/Aplicacion/inc/AP_ADC.h'
+1542396204543	Delete resource 'TEST_UART_NEW/Aplicacion/AP_ADC.c'
+1542396214465	Delete resource 'TEST_UART_NEW/Drivers/FW_ADC.c'
+1542396219629	Delete resource 'TEST_UART_NEW/Drivers/inc/FW_ADC.h'
+1542396228054	Delete resource 'TEST_UART_NEW/Primitivas/PR_ADC.c'
+1542396230956	Delete resource 'TEST_UART_NEW/Primitivas/inc/PR_ADC.h'
+1542396295084	Delete 3 resources
+1542396758599	Delete 3 resources

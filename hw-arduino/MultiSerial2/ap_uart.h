@@ -9,13 +9,22 @@
 /* ========================= */
 
 // PARA LA VARIABLE: command
+// ADC
 const int NO_COMMAND = 10;
 const int START_ADC = 11;
 const int STOP_ADC = 12;
+const int CONFIG_SR = 16;
+// Test Signals
 const int SEND_TEST_SIGNAL_1 = 13;
 const int SEND_TEST_SIGNAL_2 = 14;
 const int SEND_TEST_SIGNAL_3 = 15;
-const int CONFIG_SR = 16;
+// PWM
+const int PWM_SINE = 20;
+const int PWM_RAMP = 21;
+const int PWM_HIGH = 22;
+const int PWM_SQUARE = 23;
+const int PWM_ECG = 24;
+const int PWM_OFF = 30;
 
 // PROTOCOLO DE COMUNICACIÓN
 const int SYMBOL_END_OF_WORD = '#';
@@ -30,6 +39,7 @@ const int SYMBOL_START_OF_DATA_WORD = '%';
 
 extern volatile uint8_t command;
 extern volatile uint16_t rx_fmuestreo;
+extern volatile uint8_t rx_pwm_divider;
 
 /* === public functions ==== */
 /* ========================= */

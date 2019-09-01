@@ -1,0 +1,7 @@
+19:13:05 **** Clean-only build of configuration Debug for project ej_controlador_adc_serie ****
+make -r -j4 clean 
+rm -rf  ./primitivas/src/PR_LCD.o ./primitivas/src/PR_Serie.o ./primitivas/src/PR_Teclado.o  ./drivers_lpc1769/src/FW_ADC.o ./drivers_lpc1769/src/FW_DAC.o ./drivers_lpc1769/src/FW_EXTINT.o ./drivers_lpc1769/src/FW_GPIO.o ./drivers_lpc1769/src/FW_PINSEL.o ./drivers_lpc1769/src/FW_SysTick.o ./drivers_lpc1769/src/FW_UART.o ./drivers_lpc1769/src/cr_startup_lpc175x_6x.o ./drivers_lpc1769/src/crp.o  ./drivers_infotronic/src/FW_IO.o ./drivers_infotronic/src/FW_Init.o ./drivers_infotronic/src/FW_LCD.o ./drivers_infotronic/src/FW_Teclado.o  ./aplicacion/src/AP_Controlador.o ./aplicacion/src/main.o  ./primitivas/src/PR_LCD.d ./primitivas/src/PR_Serie.d ./primitivas/src/PR_Teclado.d  ./drivers_lpc1769/src/FW_ADC.d ./drivers_lpc1769/src/FW_DAC.d ./drivers_lpc1769/src/FW_EXTINT.d ./drivers_lpc1769/src/FW_GPIO.d ./drivers_lpc1769/src/FW_PINSEL.d ./drivers_lpc1769/src/FW_SysTick.d ./drivers_lpc1769/src/FW_UART.d ./drivers_lpc1769/src/cr_startup_lpc175x_6x.d ./drivers_lpc1769/src/crp.d  ./drivers_infotronic/src/FW_IO.d ./drivers_infotronic/src/FW_Init.d ./drivers_infotronic/src/FW_LCD.d ./drivers_infotronic/src/FW_Teclado.d  ./aplicacion/src/AP_Controlador.d ./aplicacion/src/main.d  ej_controlador_adc_serie.axf
+ 
+
+19:13:05 Build Finished (took 274ms)
+

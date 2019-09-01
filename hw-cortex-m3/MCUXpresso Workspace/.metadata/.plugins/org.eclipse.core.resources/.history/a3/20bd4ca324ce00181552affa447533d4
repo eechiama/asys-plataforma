@@ -1,0 +1,35 @@
+/*
+ * FW_ADC.h
+ *
+ *  Created on:
+ *      Author:
+ */
+
+#ifndef FW_ADC_H_
+#define FW_ADC_H_
+
+#include "Regs_LPC176x.h"
+#include "FW_PINSEL.h"
+
+// Constantes
+#define CANT_MUESTRAS_PROMEDIO	1
+
+// Variables globales para incluír en otros .c
+extern volatile uint16_t ADC_valor;
+extern volatile uint8_t ADC_dato_disponible;
+
+// Funciones del Timer0
+void ADC_Timer0_Init(void);
+void ADC_Timer0_Config(uint16_t s_rate);
+uint32_t is_ADC_ON(void);
+
+void Sampling_Start(void);
+void Sampling_Stop(void);
+
+// Funciones del ADC
+void ADC_Init(void);
+void ADC_InputSelect(uint8_t selectedInput);
+void ADC_Convert_Start(void);
+void ADC_Convert_Stop(void);
+
+#endif /* FW_ADC_H_ */
