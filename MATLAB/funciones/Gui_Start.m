@@ -78,28 +78,35 @@ set(hs.Push_Open,'callback',@callback_Serial_Open);
 % Aplicación Text
 hs.Text_App = uicontrol(hs.Figure,'style','text');
 set(hs.Text_App,'units','normalized');
-set(hs.Text_App,'position',[0.68 0.83 0.22 0.05]);
+set(hs.Text_App,'position',[0.65 0.83 0.22 0.05]);
 set(hs.Text_App,'string','Aplicación','fontsize',17);
 
 % Aplicación ButtonGroup 
 hs.ButGroup_App = uibuttongroup('Visible','on');
 set(hs.ButGroup_App,'units', 'normalized');
-set(hs.ButGroup_App,'position', [0.65 0.76 0.28 0.06]);
+set(hs.ButGroup_App,'position', [0.59 0.76 0.32 0.06]);
 set(hs.ButGroup_App,'SelectionChangedFcn',@callback_radiobutt_App);
 
-% Aplicación RadioButton Infotronic
+% Aplicación RadioButton Adquisidor (ADC)
 hs.RadioBut_ADQ = uicontrol(hs.ButGroup_App,'Style', 'radiobutton');
 set(hs.RadioBut_ADQ,'units','normalized');
 set(hs.RadioBut_ADQ,'position',[0.025 0.25 0.45 0.5]);
 set(hs.RadioBut_ADQ,'String','Adquisidor (ADC)');
 set(hs.RadioBut_ADQ,'HandleVisibility','off');
 
-% Aplicación RadioButton Arduino
+% Aplicación RadioButton Generador (PWM)
 hs.RadioBut_Generator = uicontrol(hs.ButGroup_App,'Style', 'radiobutton');
 set(hs.RadioBut_Generator,'units','normalized');
-set(hs.RadioBut_Generator,'position',[0.48 0.25 0.45 0.5]);
+set(hs.RadioBut_Generator,'position',[0.37 0.25 0.45 0.5]);
 set(hs.RadioBut_Generator,'String','Generador (PWM)');
 set(hs.RadioBut_Generator,'HandleVisibility','off');
+
+% Aplicación RadioButton Botones
+hs.RadioBut_Buttons = uicontrol(hs.ButGroup_App,'Style', 'radiobutton');
+set(hs.RadioBut_Buttons,'units','normalized');
+set(hs.RadioBut_Buttons,'position',[0.75 0.25 0.45 0.5]);
+set(hs.RadioBut_Buttons,'String','Botones');
+set(hs.RadioBut_Buttons,'HandleVisibility','off');
 
 set(hs.ButGroup_App,'selectedobject',hs.RadioBut_ADQ);
 
@@ -356,7 +363,7 @@ set(hs.Text_Signal,'visible','off');
 hs.Popup_waveform = uicontrol('style','popupmenu');
 set(hs.Popup_waveform,'units','normalized');
 set(hs.Popup_waveform,'position', [0.80 0.52 0.12 0.05]);
-set(hs.Popup_waveform,'string',{'rampa 245hz','logic high','senoidal 500hz','cuadrada 500hz','ECG2'},'fontsize',15);
+set(hs.Popup_waveform,'string',{'rampa 245hz','logic high','senoidal 500hz','cuadrada 500hz','ECG2', 'impulso 500hz'},'fontsize',15);
 set(hs.Popup_waveform,'callback',@callback_Popup_waveform);
 set(hs.Popup_waveform,'visible','off');
 
@@ -373,7 +380,7 @@ set(hs.Text_fdiv,'visible','off');
 hs.Popup_fdiv = uicontrol('style','popupmenu');
 set(hs.Popup_fdiv,'units','normalized');
 set(hs.Popup_fdiv,'position', [0.80 0.45 0.12 0.05]);
-set(hs.Popup_fdiv,'string',{'1','2','4','5','10','20','25','50'},'fontsize',15);
+set(hs.Popup_fdiv,'string',{'1','2','4','5','10','20','25','50','100','500'},'fontsize',15);
 set(hs.Popup_fdiv,'callback',@callback_Popup_fdiv);
 set(hs.Popup_fdiv,'visible','off');
 
@@ -384,6 +391,39 @@ set(hs.Toggle_pwm,'position', [0.55 0.335 0.18 0.1]);
 set(hs.Toggle_pwm,'string','start pwm','fontsize',15);
 set(hs.Toggle_pwm,'callback',@callback_toggle_pwm);
 set(hs.Toggle_pwm,'visible','off');
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APLICACIÓN BOTONES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Infotronic Not Implemented Text
+
+hs.Text_buttons_NoInfotronic = uicontrol(hs.Figure,'style','text');
+set(hs.Text_buttons_NoInfotronic,'units','normalized');
+set(hs.Text_buttons_NoInfotronic,'position',[0.62 0.35 0.3 0.2]);
+set(hs.Text_buttons_NoInfotronic,'string',...
+        'botones no implementados en el kit Infotronic','fontsize',20);
+set(hs.Text_buttons_NoInfotronic,'visible','off');
+
+%% Botones
+
+% Enable / Disable
+hs.Toggle_Buttons = uicontrol(hs.Figure,'style','togglebutton');
+set(hs.Toggle_Buttons,'units','normalized');
+set(hs.Toggle_Buttons,'position', [0.55 0.335 0.18 0.1]);
+set(hs.Toggle_Buttons,'string','Enable','fontsize',15);
+set(hs.Toggle_Buttons,'callback',@callback_toggle_buttons);
+
+% POPUP waveform
+hs.Popup_waveform_Buttons = uicontrol('style','popupmenu');
+set(hs.Popup_waveform_Buttons,'units','normalized');
+set(hs.Popup_waveform_Buttons,'position', [0.80 0.52 0.12 0.05]);
+set(hs.Popup_waveform_Buttons,'string',{'senoidal 500hz', 'rampa 245hz', 'cuadrada 500hz', 'impulso 500hz'},'fontsize',15);
+set(hs.Popup_waveform_Buttons,'callback',@callback_Popup_waveform_Buttons);
+set(hs.Popup_waveform_Buttons,'visible','off');
+
 
 
 

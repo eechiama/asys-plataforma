@@ -32,6 +32,10 @@ if strcmp(modeGEN.signal, 'ECG2')
     waveform = 'E';    
 end
 
+if strcmp(modeGEN.signal, 'impulso 500hz')
+    waveform = 'I';    
+end
+
 % comando
 pwm_command = '$P1,';
 pwm_command = strcat(pwm_command, waveform);

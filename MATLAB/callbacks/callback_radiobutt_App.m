@@ -8,13 +8,68 @@ plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
 
 %% new selection of app radiobuttons?
 new_select = get(hs.ButGroup_App,'selectedobject');
+% if(new_select == hs.RadioBut_ADQ)
+%     old_select = hs.RadioBut_Generator;
+% end
+% 
+% if(new_select == hs.RadioBut_Generator)
+%     old_select = hs.RadioBut_ADQ;
+% end
 
-if(new_select == hs.RadioBut_ADQ)
-    old_select = hs.RadioBut_Generator;
+function hide_gui_generator()
+    
 end
 
-if(new_select == hs.RadioBut_Generator)
-    old_select = hs.RadioBut_ADQ;
+%%
+if new_select == hs.RadioBut_Buttons
+    % hide all ADC stuff, both platforms
+    set(hs.Text_Save,'visible','off');
+    set(hs.Edit_File,'visible','off');
+    set(hs.Text_ConfigActual,'visible','off');
+    set(hs.Text_DisplayConfig,'visible','off');
+    set(hs.Text_DisplayConfig_ARDUINO,'visible','off');    
+    set(hs.Text_Entrada,'visible','off');
+    set(hs.Popup_EA,'visible','off');
+    set(hs.Push_Config_EA,'visible','off');
+    set(hs.Text_NoArduinoConfig2,'visible','off');   
+    set(hs.Text_FsToSet,'visible','off');
+    set(hs.Popup_Fs,'visible','off');
+    set(hs.Push_Config_Fs,'visible','off');
+    set(hs.Toggle_StartStop,'visible','off');
+    set(hs.Push_Save,'visible','off');
+    
+    % hide all generator stuff, both platforms
+    % infotronic
+    set(hs.Text_pwm_NoInfotronic,'visible','off');
+    % arduino
+    set(hs.Popup_waveform,'visible','off');
+    set(hs.Toggle_pwm,'visible','off');
+    set(hs.Text_Signal,'visible','off');
+    set(hs.Popup_waveform,'visible','off');
+    set(hs.Text_fdiv,'visible','off');
+    set(hs.Popup_fdiv,'visible','off'); 
+
+    
+    %% CASE: Plataforma Infotronic
+    if(plataforma == hs.RadioBut_Infotronic)
+    % show notice that buttons are not implemented on kit infotronic
+    set(hs.Text_buttons_NoInfotronic,'visible','on');
+    set(hs.Toggle_Buttons,'visible','off'); 
+    end
+    
+    %% CASE: Plataforma ARDUINO
+    if(plataforma == hs.RadioBut_Arduino)
+    % turn off infotronic notice of lack of feature 
+    set(hs.Text_buttons_NoInfotronic,'visible','off');
+    % show arduino-specific for buttons app
+    set(hs.Toggle_Buttons,'visible','on');
+    set(hs.Popup_waveform_Buttons,'visible','on');
+    
+    % shared with generator app
+    set(hs.Text_Signal,'visible','on');
+    set(hs.Text_fdiv,'visible','on');
+    set(hs.Popup_fdiv,'visible','on');
+    end
 end
 
 %%
@@ -34,6 +89,11 @@ if new_select == hs.RadioBut_Generator
     set(hs.Push_Config_Fs,'visible','off');
     set(hs.Toggle_StartStop,'visible','off');
     set(hs.Push_Save,'visible','off');
+    
+    % hide all buttons stuff, both platforms
+    set(hs.Toggle_Buttons,'visible','off');
+    set(hs.Text_buttons_NoInfotronic,'visible','off');
+    set(hs.Popup_waveform_Buttons,'visible','off');
     
     %% CASE: Plataforma Infotronic
     if(plataforma == hs.RadioBut_Infotronic)
@@ -63,6 +123,11 @@ if new_select == hs.RadioBut_ADQ
     set(hs.Toggle_pwm,'visible','off');
     set(hs.Text_fdiv,'visible','off');
     set(hs.Popup_fdiv,'visible','off');
+    
+    % hide all buttons stuff, both platforms
+    set(hs.Toggle_Buttons,'visible','off');
+    set(hs.Text_buttons_NoInfotronic,'visible','off');
+    set(hs.Popup_waveform_Buttons,'visible','off');
     
     % show shared ADQ stuff
     set(hs.Text_Save,'visible','on');

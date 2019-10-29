@@ -17,8 +17,8 @@ static uint16_t LUT_size = NO_DATA;
 static volatile uint16_t LUT_inx = 0;
 
 // para dividir la frecuencia
-static volatile uint8_t count = 1;
-static uint8_t freqDivider = 1;
+static volatile uint16_t count = 1;
+static uint16_t freqDivider = 1;
 
 /* ==== shared global variables ====== */
 /* =================================== */
@@ -95,7 +95,7 @@ void timer2_clear_prescaler( void ){
 
 // load the look up table, reset it's index and setup the frequency divider
 // also resetting the ISR counter (used to 'divide' the frequency)
-void LUT_load(const uint8_t *data, uint16_t qtyBytes, uint8_t divider){
+void LUT_load(const uint8_t *data, uint16_t qtyBytes, uint16_t divider){
   LUT =  &(*data);
   LUT_size = qtyBytes;
   freqDivider = divider;

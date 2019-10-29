@@ -24,11 +24,11 @@ modeADC.EAActual = '2';
 modeADC.EAToSet = 'EA2';
 
 % Mode Generator
-modeGEN.signal = 'rampa'; % default
+modeGEN.signal = 'rampa 245hz'; % default
 modeGEN.divider = '1';
-%
-%
-%
+
+% Modo Botones
+modeBUTTONS.signal = 'senoidal 500hz';
 
 % gui status flags
 info.SerialOpened = 0;
@@ -50,6 +50,7 @@ hs = Gui_Start();
 setappdata(hs.Figure,'info',info);
 setappdata(hs.Figure,'modeADC',modeADC);
 setappdata(hs.Figure,'modeGEN',modeGEN);
+setappdata(hs.Figure,'modeBUTTONS',modeBUTTONS);
 setappdata(hs.Figure,'muestras',muestras);
 guidata(hs.Figure,hs);
 

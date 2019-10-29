@@ -23,8 +23,20 @@ const int PWM_SINE = 20;
 const int PWM_RAMP = 21;
 const int PWM_HIGH = 22;
 const int PWM_SQUARE = 23;
+const int PWM_IMPULSE = 25;
 const int PWM_ECG = 24;
-const int PWM_OFF = 30;
+const int PWM_OFF = 29;
+
+const int waveform_commands[4] = {
+PWM_SINE,   // 0
+PWM_RAMP,   // 1
+PWM_SQUARE, // 2
+PWM_IMPULSE // 3
+};
+
+// Button mode
+const int STOP_BUTTONS = 40;
+const int START_BUTTONS = 41;
 
 // PROTOCOLO DE COMUNICACIÓN
 const int SYMBOL_END_OF_WORD = '#';
@@ -39,10 +51,11 @@ const int SYMBOL_START_OF_DATA_WORD = '%';
 
 extern volatile uint8_t command;
 extern volatile uint16_t rx_fmuestreo;
-extern volatile uint8_t rx_pwm_divider;
+extern volatile uint16_t rx_pwm_divider;
+extern volatile uint8_t inx_waveform_command;
 
 /* === public functions ==== */
 /* ========================= */
-void RX_Mensajes(void);
+void RX_Mensajes( const uint8_t lock);
 
 #endif /* AP_UART_H */

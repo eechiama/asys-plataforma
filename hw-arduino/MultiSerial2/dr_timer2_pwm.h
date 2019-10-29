@@ -28,7 +28,7 @@ void timer2_reset_counter( void );
 void timer2_set_prescaler( void );
 void timer2_clear_prescaler( void );
 
-void LUT_load( const uint8_t *data, uint16_t qtyBytes, uint8_t divider );
+void LUT_load( const uint8_t *data, uint16_t qtyBytes, uint16_t divider );
 void LUT_restart( void );
 
 #endif /* DR_TIMER2_PWM_H */

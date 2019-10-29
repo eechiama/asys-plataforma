@@ -14,6 +14,7 @@ const uint8_t RAMP = 12;
 const uint8_t LOGIC_HIGH = 13;
 const uint8_t SQUARE = 14;
 const uint8_t ECG = 15;
+const uint8_t IMPULSE = 16;
 
 // Divisores de frecuencia para las señales
 // estos divisores son comunes tanto para el seno de 1kHz como para el de 500Hz
@@ -33,7 +34,7 @@ const uint8_t DIV_50 = 50;  // 20
 
 /* === public functions ==== */
 /* ========================= */
-void pwm_config( uint8_t inx, uint8_t divider );
+void pwm_config( uint8_t inx, uint16_t divider );
 void pwm_start( void );
 void pwm_stop( void );
 

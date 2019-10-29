@@ -74,6 +74,12 @@ void Generator( void ){
         pwm_start();
         estado_generador = GENERATOR_ACTIVE;
       }
+      if( command == PWM_IMPULSE ){
+        command = NO_COMMAND;
+        pwm_config( IMPULSE, rx_pwm_divider );
+        pwm_start();
+        estado_generador = GENERATOR_ACTIVE;  
+      }
       break;
 
     case GENERATOR_ACTIVE:

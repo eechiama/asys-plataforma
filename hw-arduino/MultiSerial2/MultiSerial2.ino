@@ -1,5 +1,6 @@
 #include "ap_adquisidor.h"
 #include "ap_generator.h"
+#include "ap_buttons.h"
 #include "ap_uart.h"
 #include "dr_adc.h"
 #include "dr_timer2_pwm.h"
@@ -25,9 +26,12 @@ void loop(){
     delay(500);                       // wait for a second
   }
 
+  uint8_t buttonMDE_state = NO_STATE;
+
   while(1) {
    Controlador();
    Generator();
-   RX_Mensajes();
+   RX_Mensajes(buttonMDE_state);
+   Buttons(&buttonMDE_state);
   }
 }

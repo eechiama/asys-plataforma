@@ -26,7 +26,7 @@ end
 % crear el archivo, w es write y discard existing contents
 path = get( hs.Edit_File, 'string' );
 hs.File=fopen(path,'wt');
-fprintf(hs.File, 'Dato\n');
+fprintf(hs.File, '% Datos\n');
 
 % escribo las muestras
 i=1;

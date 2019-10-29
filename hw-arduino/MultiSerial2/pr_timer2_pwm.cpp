@@ -8,6 +8,7 @@
 const uint8_t SINE_SIZE = 125;
 const uint16_t RAMP_SIZE = 256;
 const uint8_t SQUARE_SIZE = 125;
+const uint8_t IMPULSE_SIZE = 125;
 const uint8_t ECG2_SIZE = 85;
 
 /* ======== private datatypes ======== */
@@ -74,6 +75,22 @@ const uint8_t ramp_wave[ RAMP_SIZE ] = {
 240,241,242,243,244,245,246,247,248,249,
 250,251,252,253,254,255 };
 
+// LUT del impulso, 125 puntos
+const uint8_t impulse_wave[ IMPULSE_SIZE ] = {
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,255,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0 };
+
 const uint8_t ecg2[ ECG2_SIZE ] = {
 94, 95, 128, 158, 187, 215, 245, 233,
 202, 174, 144, 114,  94,  84,  77,  69,
@@ -97,9 +114,9 @@ const uint8_t ecg2[ ECG2_SIZE ] = {
 /* ======= private prototypes ======== */
 /* =================================== */
 
-void pwm_config( uint8_t inx, uint8_t divider ){
+void pwm_config( uint8_t inx, uint16_t divider ){
   
-  if( (divider < 0) || (divider > 99) ) divider = 1;
+  if( (divider < 0) || (divider > 999) ) divider = 1;
   
   switch( inx ){
     case SINE:
@@ -120,6 +137,11 @@ void pwm_config( uint8_t inx, uint8_t divider ){
     case LOGIC_HIGH:
       timer2_overflow_interrupt( false );
       timer2_pwm_duty(MAX_DUTY);
+      break;
+    case IMPULSE:
+      LUT_load(impulse_wave, IMPULSE_SIZE, divider );
+      timer2_overflow_interrupt( true );
+      timer2_pwm_duty( impulse_wave[0] );      
       break;
     case ECG:
       LUT_load(ecg2, ECG2_SIZE, divider );
