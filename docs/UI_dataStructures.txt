@@ -1,0 +1,55 @@
+appdata structures
+==================
+
+info
+modeADC
+modeGEN
+modeBUTTONS
+muestras
+uiInfo
+
+Structure: info
+=========
+* Contains status flags that indicate mode of operation:
+SerialOpened
+Sampling
+TestSignal
+Generator
+
+* And also contains plot configurations and status:
+FirstPlot
+MedianaSize
+InputBufferBytes
+SamplesToRead_M3
+SamplesToRead_ARDUINO
+SamplesToRead
+
+Structure: modeADC
+=========
+
+FsToSet
+FsActual
+FsActual_ARDUINO
+EAActual
+EAToSet
+
+Structure: modeGENERATOR
+=========
+
+signal
+divider
+
+Structure: modeBUTTONS
+=========
+
+signal
+
+Structure: uiInfo
+=========
+* Mostly contains information regarding TABs and selection.
+
+NumberOfTabs
+TabLabels
+SelectedTab
+BGColor
+White

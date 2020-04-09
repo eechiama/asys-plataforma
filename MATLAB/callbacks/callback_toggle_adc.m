@@ -31,7 +31,7 @@ switch info.Sampling
         info.Sampling = 1;
         
         % Cambio la string del boton a 'Stop'
-        set(hs.Toggle_StartStop,'string','Stop Sampling');
+        set(hs.Toggle_StartStop,'string','Stop ADC');
         
     % si está activo, stop
     case 1
@@ -43,7 +43,7 @@ switch info.Sampling
         info.Sampling = 0;
         
         % Cambio la string del boton a 'Start'
-        set(hs.Toggle_StartStop,'string','Start Sampling');
+        set(hs.Toggle_StartStop,'string','Start ADC');
 end
 
 setappdata(hs.Figure,'info',info);

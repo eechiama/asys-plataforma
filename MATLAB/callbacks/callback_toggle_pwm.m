@@ -56,7 +56,7 @@ switch info.Generator
         info.Generator = 1;
         
         % Cambio la string del boton a 'Stop'
-        set(hs.Toggle_pwm,'string','stop pwm');
+        set(hs.Toggle_pwm,'string','Stop PWM');
         
     % si está activo, stop
     case 1
@@ -68,7 +68,7 @@ switch info.Generator
         info.Generator = 0;
         
         % Cambio la string del boton a 'Start'
-        set(hs.Toggle_pwm,'string','start pwm');
+        set(hs.Toggle_pwm,'string','Start PWM');
 end
 
 setappdata(hs.Figure,'info',info);

@@ -1,6 +1,6 @@
 %% ASyS - Adquisidor con Placa de Info II
 
-% Estrategia para manejar datos entra:
+% Estrategia para manejar datos entre scopes:
 % --> guidata() para intercambiar la estructura de handles
 % --> setappdata() y getappdata() para manejar otros datos.
 
@@ -9,8 +9,8 @@
 clc;
 clear;
 
-addpath('callbacks')
-addpath('funciones')
+addpath('callbacks');
+addpath('funciones');
 
 muestras=[];
 
@@ -46,14 +46,13 @@ info.SamplesToRead_ARDUINO = ( str2double(modeADC.FsActual_ARDUINO) / info.Media
 info.SamplesToRead = info.SamplesToRead_M3; % default es el cortex
 
 % Save the data
-hs = Gui_Start();
+hs = guiStart();
 setappdata(hs.Figure,'info',info);
 setappdata(hs.Figure,'modeADC',modeADC);
 setappdata(hs.Figure,'modeGEN',modeGEN);
 setappdata(hs.Figure,'modeBUTTONS',modeBUTTONS);
 setappdata(hs.Figure,'muestras',muestras);
 guidata(hs.Figure,hs);
-
 
 %% Comienza
 

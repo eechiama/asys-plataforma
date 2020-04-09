@@ -1,0 +1,35 @@
+%   Get user screen size
+        SC = get(0, 'ScreenSize');
+        MaxMonitorX = SC(3);
+        MaxMonitorY = SC(4);
+        
+%   Set the figure window size values
+        MainFigScale = .6;          % Change this value to adjust the figure size
+        MaxWindowX = round(MaxMonitorX*MainFigScale);
+        MaxWindowY = round(MaxMonitorY*MainFigScale);
+        
+        
+        XBorder = (MaxMonitorX-MaxWindowX)/2;
+        YBorder = (MaxMonitorY-MaxWindowY)/2; 
+        TabOffset = 0;              % This value offsets the tabs inside the figure.
+        ButtonHeight = 40;
+        PanelWidth = MaxWindowX-2*TabOffset+4;
+        PanelHeight = MaxWindowY-ButtonHeight-2*TabOffset;
+        ButtonWidth = round((PanelWidth-NumberOfTabs)/NumberOfTabs);
+        
+ %   Set the color varables.  
+        White = [1  1  1];            % White - Selected tab color     
+        BGColor = .9*White;           % Light Grey - Background color
+            
+%%   Create a figure for the tabs
+        hTabFig = figure(...
+            'Units', 'pixels',...
+            'Toolbar', 'none',...
+            'Position',[ XBorder, YBorder, MaxWindowX, MaxWindowY ],...
+            'NumberTitle', 'off',...
+            'Name', 'Tab Demo',...
+            'MenuBar', 'none',...
+            'Resize', 'off',...
+            'DockControls', 'off',...
+            'Color', White);
+        

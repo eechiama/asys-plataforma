@@ -6,7 +6,7 @@ title('Muestras','fontsize',15);
 xlabel('tiempo','fontsize',15);
 set(hs.Axis, 'XLimMode', 'manual' );
 set(hs.Axis, 'YLimMode', 'manual' );
-% hace que al ahcer plot() matlab no ponga los ejes que le parezca, deja
+% hace que al hacer plot() matlab no ponga los ejes que le parezca, deja
 % los que están.
 
 
