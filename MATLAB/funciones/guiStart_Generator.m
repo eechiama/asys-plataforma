@@ -13,7 +13,7 @@ set(hs.str_pwm_NoInfotronic,'BackgroundColor', BGColor);
 set(hs.str_pwm_NoInfotronic,'units','normalized');
 set(hs.str_pwm_NoInfotronic,'position',[0.07 0.45 0.7 0.1]);
 set(hs.str_pwm_NoInfotronic,'string',...
-        'generador no implementado en el kit Infotronic','fontsize',22);
+        'generador no implementado para LPC1769 / LPC845','fontsize',22);
 set(hs.str_pwm_NoInfotronic,'visible','off');
 
 %% Arduino waveform

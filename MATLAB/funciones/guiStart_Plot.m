@@ -63,8 +63,13 @@ set(hs.Toggle_pwm,'string','Start PWM','fontsize',15);
 set(hs.Toggle_pwm,'callback',@callback_toggle_pwm);
 set(hs.Toggle_pwm,'visible','off');
 
-
-
+% Test Signal 1
+hs.Push_TestSig = uicontrol(hs.Figure,'style','pushbutton');
+set(hs.Push_TestSig,'units','normalized');
+set(hs.Push_TestSig,'position',[0.8 0.35 0.18 0.1]);
+set(hs.Push_TestSig,'string','Test Signal','fontsize',15);
+set(hs.Push_TestSig,'callback',@callback_TestSig);
+set(hs.Push_TestSig,'visible','off');
 
 %% Plot section 'title' text
 
@@ -150,16 +155,6 @@ set(hs.Edit_Ylim2,'visible','off');
 
 %% Plot CONFIGS -- CHECKBOXES
 
-% Real-Time Checkbox
-hs.Checkbox_RTP = uicontrol(hs.Figure,'style','checkbox');
-set(hs.Checkbox_RTP,'BackgroundColor', BGColor);
-set(hs.Checkbox_RTP,'units','normalized');
-set(hs.Checkbox_RTP,'position',[0.57 0.02 0.17 0.05]);
-set(hs.Checkbox_RTP,'string','  "Tiempo Real"','fontsize',14);
-set(hs.Checkbox_RTP,'value',1);
-set(hs.Checkbox_RTP,'callback',@callback_PlotOptionsCheck);
-set(hs.Checkbox_RTP,'visible','off');
-
 % Axis Tight Checkbox
 hs.Checkbox_Tight = uicontrol(hs.Figure,'style','checkbox');
 set(hs.Checkbox_Tight,'BackgroundColor', BGColor);
@@ -169,15 +164,6 @@ set(hs.Checkbox_Tight,'string','  Axis Tight','fontsize',14);
 set(hs.Checkbox_Tight,'value',1);
 set(hs.Checkbox_Tight,'callback',@callback_PlotOptionsCheck);
 set(hs.Checkbox_Tight,'visible','off');
-
-% Grid Checkbox
-hs.Checkbox_Grid = uicontrol(hs.Figure,'style','checkbox');
-set(hs.Checkbox_Grid,'BackgroundColor', BGColor);
-set(hs.Checkbox_Grid,'units','normalized');
-set(hs.Checkbox_Grid,'position',[0.89 0.02 0.1 0.05]);
-set(hs.Checkbox_Grid,'string','  Grid','fontsize',14);
-set(hs.Checkbox_Grid,'value',1);
-set(hs.Checkbox_Grid,'visible','off');
 
 %% PLOT Panel, Axes and Replot PushButton
 

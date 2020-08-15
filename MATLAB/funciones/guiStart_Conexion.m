@@ -19,25 +19,33 @@ set(hs.strPlatform,'visible','on');
 % Plataforma ButtonGroup 
 hs.ButGroup_Plataforma = uibuttongroup('Visible','on');
 set(hs.ButGroup_Plataforma,'units', 'normalized');
-set(hs.ButGroup_Plataforma,'position', [0.4 0.695 0.4 0.06]);
+set(hs.ButGroup_Plataforma,'position', [0.4 0.695 0.5 0.06]);
 set(hs.ButGroup_Plataforma,'SelectionChangedFcn',@callback_radiobutt_Plataforma);
 set(hs.ButGroup_Plataforma,'visible','on');
 
-% Plataforma RadioButton Infotronic
+% Plataforma RadioButton Infotronic v1
 hs.RadioBut_Infotronic = uicontrol(hs.ButGroup_Plataforma,'Style', 'radiobutton');
 set(hs.RadioBut_Infotronic,'units','normalized');
-set(hs.RadioBut_Infotronic,'position',[0.05 0.25 0.6 0.5]);
-set(hs.RadioBut_Infotronic,'String','kit Infotronic (Cortex M3)');
+set(hs.RadioBut_Infotronic,'position',[0.05 0.25 0.4 0.5]);
+set(hs.RadioBut_Infotronic,'String','Infotronic v1 (LPC1769)');
 set(hs.RadioBut_Infotronic,'HandleVisibility','off');
 set(hs.RadioBut_Infotronic,'visible','on');
 
 % Plataforma RadioButton Arduino
 hs.RadioBut_Arduino = uicontrol(hs.ButGroup_Plataforma,'Style', 'radiobutton');
 set(hs.RadioBut_Arduino,'units','normalized');
-set(hs.RadioBut_Arduino,'position',[0.65 0.25 0.3 0.5]);
+set(hs.RadioBut_Arduino,'position',[0.5 0.25 0.25 0.5]);
 set(hs.RadioBut_Arduino,'String','Arduino');
 set(hs.RadioBut_Arduino,'HandleVisibility','off');
 set(hs.RadioBut_Arduino,'visible','on');
+
+% Plataforma RadioButton LPC845
+hs.RadioBut_LPC845 = uicontrol(hs.ButGroup_Plataforma,'Style', 'radiobutton');
+set(hs.RadioBut_LPC845,'units','normalized');
+set(hs.RadioBut_LPC845,'position',[0.8 0.25 0.2 0.5]);
+set(hs.RadioBut_LPC845,'String','LPC845');
+set(hs.RadioBut_LPC845,'HandleVisibility','off');
+set(hs.RadioBut_LPC845,'visible','on');
 
 set(hs.ButGroup_Plataforma,'selectedobject',hs.RadioBut_Infotronic);
 

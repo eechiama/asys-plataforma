@@ -5,6 +5,7 @@ function hide_gui_adc(hObj)
     set(hs.strConfigActual,'visible','off');
     set(hs.strDisplayConfig,'visible','off');
     set(hs.strDisplayConfig_ARDUINO,'visible','off');
+    set(hs.strDisplayConfig_LPC845,'visible','off');
     
     set(hs.strEntrada,'visible','off');
     set(hs.Popup_EA,'visible','off');

@@ -230,14 +230,6 @@ end
 
 % %% SEñALES DE PRUEBA PushButtons
 % 
-% % Test Signal 1
-% hs.Push_Test1 = uicontrol(hs.Figure,'style','pushbutton');
-% set(hs.Push_Test1,'units','normalized');
-% set(hs.Push_Test1,'position',[0.05 0.55 0.1 0.06]);
-% set(hs.Push_Test1,'string','Test Signal 1','fontsize',13);
-% set(hs.Push_Test1,'callback',@callback_Test1);
-% set(hs.Push_Test1,'visible','off');
-% 
 % % Test Signal 2
 % hs.Push_Test2 = uicontrol(hs.Figure,'style','pushbutton');
 % set(hs.Push_Test2,'units','normalized');

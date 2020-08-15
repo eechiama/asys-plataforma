@@ -4,13 +4,13 @@ hs = guidata(hObj.Parent);
 info = getappdata(hs.Figure,'info');
 modeADC = getappdata(hs.Figure,'modeADC');
 
-% si no hay serial port abierto
+%% si no hay serial port abierto
 if info.SerialOpened==0
     errordlg('No se puede configurar FS sin ningún puerto serie abierto.');
     return;
 end
 
-% serial port abierto e inactivo
+%% serial port abierto e inactivo
 if info.Sampling == 0
     
     % preparo el comando
@@ -22,23 +22,33 @@ if info.Sampling == 0
     fprintf(hs.Serial, string_command);
     
     % Obtengo información de la plataforma seleccionada actualmente
-    platafoma = get(hs.ButGroup_Plataforma,'selectedobject');
+    plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
 
-    if(platafoma == hs.RadioBut_Infotronic)
-        % actualizo la FsActual
-        modeADC.FsActual = modeADC.FsToSet;
+    %% Actualizo según la plataforma seleccionada
+    if( plataforma == hs.RadioBut_Infotronic )
+        % la Fs
+        modeADC.LPC1769.Fs = modeADC.FsToSet;
         
-        % Actualizo la cantidad de samples a leer del puerto serie de a una vez
-        info.SamplesToRead_M3 = ( str2double(modeADC.FsActual) / info.MedianaSize ) / 5;
-        info.SamplesToRead = info.SamplesToRead_M3;
+        % La cantidad de samples a leer del puerto serie de a una vez
+        info.SamplesToRead_LPC1769 = ( str2double(modeADC.LPC1769.Fs) / info.MedianaSize ) / 5;
+        info.SamplesToRead = info.SamplesToRead_LPC1769;
+    end
+    
+    if( plataforma == hs.RadioBut_LPC845 )
+        % la Fs
+        modeADC.LPC845.Fs = modeADC.FsToSet;
+        
+        % La cantidad de samples a leer del puerto serie de a una vez
+        info.SamplesToRead_LPC845 = ( str2double(modeADC.LPC845.Fs) / info.MedianaSize ) / 5;
+        info.SamplesToRead = info.SamplesToRead_LPC845;
     end
 
-    if(platafoma == hs.RadioBut_Arduino)
-        % actualizo la FsActual_ARDUINO
-        modeADC.FsActual_ARDUINO = modeADC.FsToSet;
+    if(plataforma == hs.RadioBut_Arduino)
+        % la Fs
+        modeADC.Arduino.Fs = modeADC.FsToSet;
         
-        % Actualizo la cantidad de samples a leer del puerto serie de a una vez
-        info.SamplesToRead_ARDUINO = ( str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize ) / 5;
+        % La cantidad de samples a leer del puerto serie de a una vez
+        info.SamplesToRead_ARDUINO = ( str2double(modeADC.Arduino.Fs) / info.MedianaSize ) / 5;
         info.SamplesToRead = info.SamplesToRead_ARDUINO;
     end
     

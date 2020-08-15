@@ -2,20 +2,10 @@ function callback_update_plot(hObj, event)
 
 hs = guidata(hObj.Parent);
 info = getappdata(hs.Figure,'info');
-modeADC = getappdata(hs.Figure,'modeADC');
 muestras = getappdata(hs.Figure,'muestras');
 
-RadioButton = get(hs.ButGroup_Plataforma,'selectedobject');
-
-if(RadioButton == hs.RadioBut_Infotronic)
-    Fs = str2double(modeADC.FsActual) / info.MedianaSize;
-end
-
-if(RadioButton == hs.RadioBut_Arduino)
-    Fs = str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize;
-end
-
 ll=length(muestras);
+Fs = info.plotFs;
 
 if ll == 0
     errordlg('No hay muestras para graficar.');
@@ -26,19 +16,8 @@ dt = 1/Fs;
 t = 0 : dt : (ll-1)*dt;
 
 axes(hs.Axis);
-
-if info.FirstPlot == 0
-   set(hs.Plot,'xdata',t,'ydata',muestras,'linewidth',1,'color','b');
-   hold on;
-else
-   hold on;
-   hs.Plot = plot(t,muestras,'b','linewidth',1);
-   info.FirstPlot = 0;
-   setappdata(hs.Figure,'info',info);
-   guidata(hs.Figure,hs);
-end
-
-
+hs.Plot = plot(t,muestras,'b','linewidth',1);
+grid on;
 
 %% Chequeo ejes
 
@@ -85,20 +64,5 @@ if val == 0
     end
     
 end
-
-
-%% Chequeo Grid
-
-val = get(hs.Checkbox_Grid,'value');
-
-if val == 0
-    grid 'off';
-end
-
-if val == 1
-    grid 'on';
-end
-
-
     
 end

@@ -8,6 +8,7 @@ set(hs.Axis, 'XLimMode', 'manual' );
 set(hs.Axis, 'YLimMode', 'manual' );
 % hace que al hacer plot() matlab no ponga los ejes que le parezca, deja
 % los que están.
+grid on;
 
 
 %% Chequeo ejes
@@ -29,18 +30,5 @@ ylim1 = str2double(ylim1);
 ylim2 = str2double(ylim2);
 
 ylim([ylim1 ylim2]);
-
-
-%% Chequeo Grid
-
-val = get(hs.Checkbox_Grid,'value');
-
-if val == 0
-    grid 'off';
-end
-
-if val == 1
-    grid 'on';
-end
 
 end

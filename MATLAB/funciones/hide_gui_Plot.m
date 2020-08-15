@@ -8,6 +8,7 @@ function hide_gui_Plot(hObj)
     set(hs.Push_Save,'visible','off');
     set(hs.Toggle_StartStop,'visible','off');
     set(hs.Toggle_pwm,'visible','off');
+    set(hs.Push_TestSig,'visible','off');
     
     set(hs.strPlotConfig,'visible','off');
     
@@ -21,9 +22,7 @@ function hide_gui_Plot(hObj)
     set(hs.Text_Ylim_Guion,'visible','off');
     set(hs.Edit_Ylim2,'visible','off');
     
-    set(hs.Checkbox_RTP,'visible','off');
     set(hs.Checkbox_Tight,'visible','off');
-    set(hs.Checkbox_Grid,'visible','off');
     
     set(hs.plotPanel,'visible','off');
     set(hs.Axis,'visible','off');

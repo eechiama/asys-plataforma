@@ -26,7 +26,7 @@ if info.Sampling==1
     return;
 end
 
-%% important plot stuff, changed with platform without fail.
+%% Change plot ylim acording to platform adc resolution
 
 if new_select == hs.RadioBut_Arduino
     % ylim adecuado al adc de 10bits
@@ -36,97 +36,33 @@ if new_select == hs.RadioBut_Arduino
     info.SamplesToRead = info.SamplesToRead_ARDUINO;
 end
 
-if new_select == hs.RadioBut_Infotronic
+if ( new_select == hs.RadioBut_Infotronic )
     % ylim adecuado al adc de 12bits
     set(hs.Edit_Ylim2,'string','4096','fontsize',15);
     % plot stuff
     reset_plot(hs);
-    info.SamplesToRead = info.SamplesToRead_M3;   
+    info.SamplesToRead = info.SamplesToRead_LPC1769;   
+end
+
+if ( new_select == hs.RadioBut_LPC845 )
+    % ylim adecuado al adc de 12bits
+    set(hs.Edit_Ylim2,'string','4096','fontsize',15);
+    % plot stuff
+    reset_plot(hs);
+    info.SamplesToRead = info.SamplesToRead_LPC845;   
+end
+
+%% Change serial port string according to lpc845/lpc1769
+
+if new_select == hs.RadioBut_Infotronic
+    set(hs.Edit_Port,'string','/dev/ttyUSB0','fontsize',15);
+end
+
+if new_select == hs.RadioBut_LPC845
+    set(hs.Edit_Port,'string','/dev/ttyACM0','fontsize',15);
 end
 
 %% update fig data
 setappdata(hs.Figure,'info',info);
 guidata(hObj.Parent,hs);
 end
-
-%% For OLD GUI
-% Currently selected application?
-% app = get(hs.ButGroup_App,'selectedobject');
-
-%% For OLD GUI, where upon switching platform I had to show/hide lots of UI elements.
-% %% CASE: APP ADQ
-% if app == hs.RadioBut_ADQ
-% % hide all generator stuff, both platforms
-% % infotronic
-% set(hs.str_pwm_NoInfotronic,'visible','off');
-% % arduino
-% set(hs.strSignal,'visible','off');
-% set(hs.Popup_waveform,'visible','off');
-% set(hs.Toggle_pwm,'visible','off');
-% set(hs.strFreqDiv,'visible','off');
-% set(hs.Popup_fdiv,'visible','off');
-% 
-%     if new_select == hs.RadioBut_Arduino
-%         % hide all infotronic ADQ
-%         set(hs.strDisplayConfig,'visible','off');
-%         set(hs.strEntrada,'visible','off');
-%         set(hs.Popup_EA,'visible','off');
-%         set(hs.Push_Config_EA,'visible','off');
-%         
-%         % show all arduino ADQ
-%         set(hs.strDisplayConfig_ARDUINO,'visible','on');
-%         set(hs.strNoArduinoConfig2,'visible','on');      
-%     end
-%     
-%     if new_select == hs.RadioBut_Infotronic
-%         % hide all arduino for ADQ app
-%         set(hs.strDisplayConfig_ARDUINO,'visible','off');
-%         set(hs.strNoArduinoConfig2,'visible','off');        
-%         
-%         % show all infotronic for ADQ app
-%         set(hs.strDisplayConfig,'visible','on');
-%         set(hs.strEntrada,'visible','on');
-%         set(hs.Popup_EA,'visible','on');
-%         set(hs.Push_Config_EA,'visible','on');
-%     end
-% end
-% 
-% %% CASE: APP Generator
-% if app == hs.RadioBut_Generator
-%     % hide all ADQ stuff, both platforms
-%     % hide all infotronic ADQ
-%     set(hs.strDisplayConfig,'visible','off');
-%     set(hs.strEntrada,'visible','off');
-%     set(hs.Popup_EA,'visible','off');
-%     set(hs.Push_Config_EA,'visible','off');
-%     % hide all arduino for ADQ app
-%     set(hs.strDisplayConfig_ARDUINO,'visible','off');
-%     set(hs.strNoArduinoConfig2,'visible','off'); 
-% 
-%     if new_select == hs.RadioBut_Arduino
-%         % show all arduino-generator stuff
-%         set(hs.strSignal,'visible','on');
-%         set(hs.Popup_waveform,'visible','on');
-%         set(hs.Toggle_pwm,'visible','on');
-%         set(hs.strFreqDiv,'visible','on');
-%         set(hs.Popup_fdiv,'visible','on');
-%         
-%         % hide all infotronic-generator stuff
-%         set(hs.str_pwm_NoInfotronic,'visible','off');
-%     end
-% 
-%     if new_select == hs.RadioBut_Infotronic
-%         % show all infotronic-generator stuff
-%         % not implemented
-%         set(hs.str_pwm_NoInfotronic,'visible','on');
-%         
-%         % hide all arduino generator stuff
-%         set(hs.strSignal,'visible','off');
-%         set(hs.Popup_waveform,'visible','off');
-%         set(hs.Toggle_pwm,'visible','off');
-%         set(hs.strFreqDiv,'visible','off');
-%         set(hs.Popup_fdiv,'visible','off');
-%     end
-% 
-% end
-

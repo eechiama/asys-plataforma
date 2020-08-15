@@ -32,6 +32,14 @@ set(hs.strDisplayConfig_ARDUINO,'position',[0.4 0.695 0.4 0.06]);
 set(hs.strDisplayConfig_ARDUINO,'string','Pin A0, 2500 Hz.','fontsize',15);
 set(hs.strDisplayConfig_ARDUINO,'visible','off');
 
+% DisplayConfig LPC845
+hs.strDisplayConfig_LPC845 = uicontrol(hs.Figure,'style','text');
+set(hs.strDisplayConfig_LPC845,'BackgroundColor', BGColor);
+set(hs.strDisplayConfig_LPC845,'units','normalized');
+set(hs.strDisplayConfig_LPC845,'position',[0.4 0.695 0.4 0.06]);
+set(hs.strDisplayConfig_LPC845,'string','ADC0 (pote), 2500 Hz.','fontsize',15);
+set(hs.strDisplayConfig_LPC845,'visible','off');
+
 %% Entrada Analógica
 
 % Entrada Infotronic Text

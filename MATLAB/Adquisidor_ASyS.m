@@ -4,6 +4,18 @@
 % --> guidata() para intercambiar la estructura de handles
 % --> setappdata() y getappdata() para manejar otros datos.
 
+% Estructuras de datos
+% =====================
+%
+% modeADC:  contiene información de la configuración del ADC
+%           (fs y entrada)
+%
+% modeGEN:  análogo generador PWM
+%
+% info:     información sobre interfaz gráfica y uso del usuario
+%           y settings necesarios para plottear y recibir datos por puerto
+%           serie
+
 %% Inicialización
 
 clc;
@@ -17,11 +29,14 @@ muestras=[];
 % Mode ADC
 % Frequency
 modeADC.FsToSet = '2500';
-modeADC.FsActual = '2500';
-modeADC.FsActual_ARDUINO = '2500';
-% Input
-modeADC.EAActual = '2';
-modeADC.EAToSet = 'EA2';
+modeADC.LPC1769.Fs = '2500';
+modeADC.Arduino.Fs = '2500';
+modeADC.LPC845.Fs = '2500';
+% Input Infotronic v1
+modeADC.LPC1769.EA_infotronic = '2'; 
+modeADC.LPC1769.EA_to_set = 'EA2';
+% Input LPC845
+modeADC.LPC845.channel = '0';
 
 % Mode Generator
 modeGEN.signal = 'rampa 245hz'; % default
@@ -30,20 +45,23 @@ modeGEN.divider = '1';
 % Modo Botones
 modeBUTTONS.signal = 'senoidal 500hz';
 
-% gui status flags
+% GUI status flags
 info.SerialOpened = 0;
 info.Sampling = 0;
 info.TestSignal = 0;
 info.Generator = 0;
 
-% plot information
+% Information to plot
 info.FirstPlot = 1;
-% plot config
 info.MedianaSize = 1;
+info.plotFs = str2double(modeADC.LPC1769.Fs) / info.MedianaSize; % default es el LPC1769
+
+% Information to retrieve data from serial port
 info.InputBufferBytes = 0;
-info.SamplesToRead_M3 = ( str2double(modeADC.FsActual) / info.MedianaSize ) / 5;
-info.SamplesToRead_ARDUINO = ( str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize ) / 5;
-info.SamplesToRead = info.SamplesToRead_M3; % default es el cortex
+info.SamplesToRead_LPC1769 = ( str2double(modeADC.LPC1769.Fs) / info.MedianaSize ) / 5;
+info.SamplesToRead_ARDUINO = ( str2double(modeADC.Arduino.Fs) / info.MedianaSize ) / 5;
+info.SamplesToRead_LPC845 = ( str2double(modeADC.LPC845.Fs) / info.MedianaSize ) / 5;
+info.SamplesToRead = info.SamplesToRead_LPC1769; % default es el LPC1769
 
 % Save the data
 hs = guiStart();
@@ -76,9 +94,7 @@ while 1
             new_datos = GetSamples(hs.Serial, info.SamplesToRead );
             muestras = [muestras new_datos];
             setappdata(hs.Figure,'muestras',muestras);
-            if get(hs.Checkbox_RTP, 'value') == 1
-                plot_tiempo_real(hs);
-            end
+            plot_tiempo_real(hs);
         end
         
     end

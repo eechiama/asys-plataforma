@@ -7,19 +7,9 @@ INTERVALO = 5;  % variable para agrandar el eje de tiempo, segundos
 
 info = getappdata(hs.Figure,'info');
 muestras = getappdata(hs.Figure,'muestras');
-modeADC = getappdata(hs.Figure,'modeADC');
 
-RadioButton = get(hs.ButGroup_Plataforma,'selectedobject');
-
-if(RadioButton == hs.RadioBut_Infotronic)
-    Fs = str2double(modeADC.FsActual) / info.MedianaSize;
-end
-
-if(RadioButton == hs.RadioBut_Arduino)
-    Fs = str2double(modeADC.FsActual_ARDUINO) / info.MedianaSize;
-end
-
-ll=length(muestras);
+ll = length(muestras);
+Fs = info.plotFs;
 
 if ll == 0
     errordlg('No hay muestras para graficar.');
@@ -31,20 +21,10 @@ t = 0 : dt : (ll-1)*dt;
 
 axes(hs.Axis);
 
-if info.FirstPlot == 0
-   set(hs.Plot,'xdata',t,'ydata',muestras,'linewidth',1,'color','b');
-   hold on;
-else
-   hold on;
-   hs.Plot = plot(t,muestras,'b','linewidth',1);
-   info.FirstPlot = 0;
-   setappdata(hs.Figure,'info',info);
-   guidata(hs.Figure,hs);
-end
+hs.Plot = plot(t,muestras,'b','linewidth',1);
+grid on;
 
-
-
-%% Chequeo ejes
+%% Chequeo límites de los ejes
 
 val = get(hs.Checkbox_Tight,'value');
 
@@ -77,19 +57,5 @@ if val == 0
     % Pero no aviso al usuario, porque esta función se llama todo el tiempo
     
 end
-
-%% Chequeo Grid
-
-val = get(hs.Checkbox_Grid,'value');
-
-if val == 0
-    grid 'off';
-end
-
-if val == 1
-    grid 'on';
-end
-
-
 
 end

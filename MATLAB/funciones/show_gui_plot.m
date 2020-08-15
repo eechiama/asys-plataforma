@@ -5,9 +5,13 @@ function show_gui_plot(hObj, platform)
     set(hs.strSave,'visible','on');
     set(hs.Edit_File,'visible','on');
     
+    % push buttons
     set(hs.Push_Save,'visible','on');
     set(hs.Toggle_StartStop,'visible','on');
-    set(hs.Toggle_pwm,'visible','on');
+    if( platform == hs.RadioBut_Arduino )
+        set(hs.Toggle_pwm,'visible','on');
+    end
+    set(hs.Push_TestSig,'visible','on');
     
     set(hs.strPlotConfig,'visible','on');
     
@@ -21,9 +25,7 @@ function show_gui_plot(hObj, platform)
     set(hs.Text_Ylim_Guion,'visible','on');
     set(hs.Edit_Ylim2,'visible','on');
     
-    set(hs.Checkbox_RTP,'visible','on');
     set(hs.Checkbox_Tight,'visible','on');
-    set(hs.Checkbox_Grid,'visible','on');
     
     set(hs.plotPanel,'visible','on');
     set(hs.Axis,'visible','on');

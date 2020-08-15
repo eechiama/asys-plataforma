@@ -1,5 +1,7 @@
 function callback_Configurar_EA(hObj, event)
 
+% esta función sólo se llama con la selección de plataforma LPC1769
+
 hs = guidata(hObj.Parent);
 info = getappdata(hs.Figure,'info');
 modeADC = getappdata(hs.Figure,'modeADC');
@@ -14,7 +16,7 @@ end
 if info.Sampling == 0
     
     % preparo el comando
-    aux = modeADC.EAToSet(end);
+    aux = modeADC.LPC1769.EA_to_set(end);
     string_command = '$I,';
     string_command = strcat(string_command, aux);
     string_command = strcat(string_command,'.#');
@@ -23,7 +25,7 @@ if info.Sampling == 0
     fprintf(hs.Serial, string_command);
     
     % actualizo la EAActual
-    modeADC.EAActual = modeADC.EAToSet;
+    modeADC.LPC1769.EA_infotronic = modeADC.LPC1769.EA_to_set;
     
     % Actualizar datos
     setappdata(hs.Figure,'info',info);

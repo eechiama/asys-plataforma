@@ -1,5 +1,4 @@
 function callback_Serial_Open(hObj, event)
-global flags;
 
 hs = guidata(hObj.Parent);
 info = getappdata(hs.Figure,'info');

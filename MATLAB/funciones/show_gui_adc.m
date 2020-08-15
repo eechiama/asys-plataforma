@@ -22,6 +22,11 @@ function show_gui_adc(hObj, platform)
         set(hs.strNoArduinoConfig2,'visible','on');
     end
     
+    % case: plataforma == LPC845
+    if( platform == hs.RadioBut_LPC845 )
+        set(hs.strDisplayConfig_LPC845,'visible','on');
+    end
+    
     % Save changed handles to handles structure on guiData
     guidata(hObj.Parent,hs);
 end

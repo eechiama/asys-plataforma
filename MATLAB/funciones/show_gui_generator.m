@@ -2,8 +2,8 @@
 function show_gui_generator(hObj, platform)
     hs = guidata(hObj.Parent);
     
-    % case: platform == infotronic
-    if( platform == hs.RadioBut_Infotronic )
+    % case: platform == infotronic v1 OR LPC845
+    if( platform == hs.RadioBut_Infotronic ) || ( platform == hs.RadioBut_LPC845 )
         set(hs.str_pwm_NoInfotronic,'visible','on');
     end
     
