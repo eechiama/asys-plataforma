@@ -15,6 +15,9 @@
 % info:     información sobre interfaz gráfica y uso del usuario
 %           y settings necesarios para plottear y recibir datos por puerto
 %           serie
+%
+% uiInfo    información sobre TABS y selección activa
+%           (inicializada en función gui_start() )
 
 %% Inicialización
 
