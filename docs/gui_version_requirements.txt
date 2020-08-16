@@ -1,3 +1,0 @@
-seriallist requires 2017b
-serialportlist requires 2019b
-instrhwinfo requires instrument control toolbox
