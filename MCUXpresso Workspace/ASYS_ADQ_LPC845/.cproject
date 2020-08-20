@@ -49,6 +49,7 @@
 									<listOptionValue builtIn="false" value="/home/stv/code-embedded/LPC845/includes"/>
 									<listOptionValue builtIn="false" value="/home/stv/code-embedded/portable/includes"/>
 									<listOptionValue builtIn="false" value="/home/stv/repos/Modulos/Modulos/includes"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ASYS_ADQ_LPC845/includes Libreria_LPC845 HAL}&quot;"/>
 								</option>
 								<option id="com.crt.advproject.gcc.fpu.439030533" name="Floating point" superClass="com.crt.advproject.gcc.fpu" useByScannerDiscovery="true"/>
 								<option id="com.crt.advproject.c.misc.dialect.432979830" name="Language standard" superClass="com.crt.advproject.c.misc.dialect" useByScannerDiscovery="true"/>
@@ -236,6 +237,7 @@
 									<listOptionValue builtIn="false" value="/home/stv/code-embedded/LPC845/includes"/>
 									<listOptionValue builtIn="false" value="/home/stv/code-embedded/portable/includes"/>
 									<listOptionValue builtIn="false" value="/home/stv/repos/Modulos/Modulos/includes"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ASYS_ADQ_LPC845/includes Libreria_LPC845 HAL}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.include.files.1468631776" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.gcc.exe.release.option.optimization.level.1088729314" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.release.option.optimization.level" useByScannerDiscovery="true"/>

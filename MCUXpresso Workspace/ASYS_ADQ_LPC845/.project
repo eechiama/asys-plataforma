@@ -25,6 +25,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>includes Libreria_LPC845 HAL</name>
+			<type>2</type>
+			<location>/home/stv/repos/LPC845/Libreria_LPC845/includes/hal</location>
+		</link>
+		<link>
 			<name>libLibreria_LPC845.a</name>
 			<type>1</type>
 			<location>/home/stv/repos/LPC845/Libreria_LPC845/Debug/libLibreria_LPC845.a</location>
