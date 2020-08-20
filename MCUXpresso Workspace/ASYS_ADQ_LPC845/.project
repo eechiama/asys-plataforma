@@ -25,6 +25,31 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>libLibreria_LPC845.a</name>
+			<type>1</type>
+			<location>/home/stv/repos/LPC845/Libreria_LPC845/Debug/libLibreria_LPC845.a</location>
+		</link>
+		<link>
+			<name>includes/AP_LEDS.h</name>
+			<type>1</type>
+			<location>/home/stv/code-embedded/LPC845/includes/AP_LEDS.h</location>
+		</link>
+		<link>
+			<name>includes/AP_MSG_RX.h</name>
+			<type>1</type>
+			<location>/home/stv/code-embedded/portable/includes/AP_MSG_RX.h</location>
+		</link>
+		<link>
+			<name>includes/AP_UART.h</name>
+			<type>1</type>
+			<location>/home/stv/code-embedded/LPC845/includes/AP_UART.h</location>
+		</link>
+		<link>
+			<name>includes/RingBuffer.h</name>
+			<type>1</type>
+			<location>/home/stv/repos/Modulos/Modulos/includes/RingBuffer.h</location>
+		</link>
+		<link>
 			<name>sources/AP_LEDS.c</name>
 			<type>1</type>
 			<location>/home/stv/code-embedded/LPC845/AP_LEDS.c</location>
