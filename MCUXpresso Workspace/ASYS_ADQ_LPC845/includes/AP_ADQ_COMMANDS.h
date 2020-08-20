@@ -57,6 +57,6 @@ extern volatile unsigned char rx_channel;
  * @brief		Reads character array 'word' and tries to decipher any incoming commands.
  * 				If a command is found, it's set onto the global variable 'command'.
  */
-void command_interpreter( const char word[] );
+void command_interpreter( const unsigned char word[] );
 
 #endif /* AP_ADQ_COMMANDS_H_ */

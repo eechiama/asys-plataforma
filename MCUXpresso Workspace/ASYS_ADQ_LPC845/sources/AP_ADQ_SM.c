@@ -11,14 +11,14 @@
 //	Includes
 // ===================================
 
-#include "../includes/AP_ADQ_SM.h"
+#include <AP_ADQ_SM.h>
 
 #include <AP_LEDS.h>
 #include <AP_UART.h>
 
 // Portables
-#include "../includes/AP_ADC.h"
-#include "../includes/AP_ADQ_COMMANDS.h"
+#include <AP_ADC.h>
+#include <AP_ADQ_COMMANDS.h>
 
 // ===================================
 //	Private constants

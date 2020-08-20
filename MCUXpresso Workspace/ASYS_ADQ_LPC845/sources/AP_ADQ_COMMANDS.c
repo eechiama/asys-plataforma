@@ -49,7 +49,7 @@ volatile unsigned short int rx_sampleRate = 2500;
 //	Public functions
 // ===================================
 
-void command_interpreter( const char word[] ){
+void command_interpreter( const unsigned char word[] ){
 	unsigned char digits = 0;
 
 	// Command:	Start/Stop sampling.
