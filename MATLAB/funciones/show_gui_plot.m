@@ -8,7 +8,7 @@ function show_gui_plot(hObj, platform)
     % push buttons
     set(hs.Push_Save,'visible','on');
     set(hs.Toggle_StartStop,'visible','on');
-    if( platform == hs.RadioBut_Arduino )
+    if( (platform == hs.RadioBut_Arduino) || (platform == hs.RadioBut_LPC845))
         set(hs.Toggle_pwm,'visible','on');
     end
     set(hs.Push_TestSig,'visible','on');

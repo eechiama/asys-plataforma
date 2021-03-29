@@ -5,7 +5,7 @@ function show_gui_Conexion(hObj)
     % Platform selector
     set(hs.strPlatform,'visible','on');
     set(hs.ButGroup_Plataforma,'visible','on');
-    set(hs.RadioBut_Infotronic,'visible','on');
+    set(hs.RadioBut_LPC1769,'visible','on');
     set(hs.RadioBut_Arduino,'visible','on');
     
     % Serial

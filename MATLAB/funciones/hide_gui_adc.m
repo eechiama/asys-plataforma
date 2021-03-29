@@ -9,6 +9,7 @@ function hide_gui_adc(hObj)
     
     set(hs.strEntrada,'visible','off');
     set(hs.Popup_EA,'visible','off');
+    set(hs.Popup_EA_LPC845,'visible','off');
     set(hs.Push_Config_EA,'visible','off');
     set(hs.strNoArduinoConfig2,'visible','off');
     

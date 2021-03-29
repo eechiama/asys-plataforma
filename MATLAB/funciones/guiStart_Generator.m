@@ -13,7 +13,7 @@ set(hs.str_pwm_NoInfotronic,'BackgroundColor', BGColor);
 set(hs.str_pwm_NoInfotronic,'units','normalized');
 set(hs.str_pwm_NoInfotronic,'position',[0.07 0.45 0.7 0.1]);
 set(hs.str_pwm_NoInfotronic,'string',...
-        'generador no implementado para LPC1769 / LPC845','fontsize',22);
+        'generador no implementado para LPC1769','fontsize',22);
 set(hs.str_pwm_NoInfotronic,'visible','off');
 
 %% Arduino waveform
@@ -26,7 +26,7 @@ set(hs.strSignal,'position',[0.07 0.7 0.3 0.05]);
 set(hs.strSignal,'string','Forma de la señal modulada:','fontsize',15);
 set(hs.strSignal,'visible','off');
 
-% POPUP waveform
+% POPUP waveform ARDUINO
 hs.Popup_waveform = uicontrol('style','popupmenu');
 set(hs.Popup_waveform,'BackgroundColor', BGColor);
 set(hs.Popup_waveform,'units','normalized');
@@ -34,6 +34,15 @@ set(hs.Popup_waveform,'position', [0.4 0.695 0.2 0.06]);
 set(hs.Popup_waveform,'string',{'rampa 245hz','logic high','senoidal 500hz','cuadrada 500hz','ECG2', 'impulso 500hz'},'fontsize',15);
 set(hs.Popup_waveform,'callback',@callback_Popup_waveform);
 set(hs.Popup_waveform,'visible','off');
+
+% POPUP waveform LPC845
+hs.Popup_waveform_LPC845 = uicontrol('style','popupmenu');
+set(hs.Popup_waveform_LPC845,'BackgroundColor', BGColor);
+set(hs.Popup_waveform_LPC845,'units','normalized');
+set(hs.Popup_waveform_LPC845,'position', [0.4 0.695 0.2 0.06]);
+set(hs.Popup_waveform_LPC845,'string',{'senoidal','rampa','cuadrada'},'fontsize',15);
+set(hs.Popup_waveform_LPC845,'callback',@callback_Popup_waveform_LPC845);
+set(hs.Popup_waveform_LPC845,'visible','off');
 
 %% Arduino frequency divider
 
@@ -45,7 +54,7 @@ set(hs.strFreqDiv,'position',[0.07 0.6 0.3 0.05]);
 set(hs.strFreqDiv,'string','Divisor de frecuencia:','fontsize',15);
 set(hs.strFreqDiv,'visible','off');
 
-% POPUP divider values
+% POPUP divider values ARDUINO
 hs.Popup_fdiv = uicontrol('style','popupmenu');
 set(hs.Popup_fdiv,'BackgroundColor', BGColor);
 set(hs.Popup_fdiv,'units','normalized');
@@ -53,3 +62,12 @@ set(hs.Popup_fdiv,'position', [0.4 0.6 0.1 0.05] );
 set(hs.Popup_fdiv,'string',{'1','2','4','5','10','20','25','50','100','500'},'fontsize',15);
 set(hs.Popup_fdiv,'callback',@callback_Popup_fdiv);
 set(hs.Popup_fdiv,'visible','off');
+
+% POPUP divider values LC845
+hs.Popup_fdiv_LPC845 = uicontrol('style','popupmenu');
+set(hs.Popup_fdiv_LPC845,'BackgroundColor', BGColor);
+set(hs.Popup_fdiv_LPC845,'units','normalized');
+set(hs.Popup_fdiv_LPC845,'position', [0.4 0.6 0.1 0.05] );
+set(hs.Popup_fdiv_LPC845,'string',{'1','2','4','5','8','10','20','25','40','50','100'},'fontsize',15);
+set(hs.Popup_fdiv_LPC845,'callback',@callback_Popup_fdiv_LPC845);
+set(hs.Popup_fdiv_LPC845,'visible','off');

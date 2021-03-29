@@ -5,7 +5,7 @@ info = getappdata(hs.Figure,'info');
 modeADC = getappdata(hs.Figure,'modeADC');
 muestras = getappdata(hs.Figure,'muestras');
 
-% obtengo información de plataforma actual
+% plataforma actual?
 plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
 
 %% protección contra puerto serie no abierto
@@ -16,7 +16,7 @@ end
 
 %% Según plataforma seleccionada, configuro Fs a utilizar en fuciones de plot
 
-if plataforma == hs.RadioBut_Infotronic
+if plataforma == hs.RadioBut_LPC1769
     info.plotFs = str2double(modeADC.LPC1769.Fs) / info.MedianaSize;
 end
 

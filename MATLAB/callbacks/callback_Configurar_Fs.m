@@ -10,12 +10,28 @@ if info.SerialOpened==0
     return;
 end
 
+% plataforma actual?
+plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
+
+% 
+if plataforma == hs.RadioBut_LPC1769
+    aux_Fs = modeADC.LPC1769.Fs_to_set;
+end
+
+if plataforma == hs.RadioBut_Arduino
+    aux_Fs = modeADC.Arduino.Fs_to_set;
+end
+
+if plataforma == hs.RadioBut_LPC845
+    aux_Fs = modeADC.LPC845.Fs_to_set;
+end
+
 %% serial port abierto e inactivo
 if info.Sampling == 0
     
     % preparo el comando
     string_command = '$C,';
-    string_command = strcat(string_command, modeADC.FsToSet);
+    string_command = strcat(string_command, aux_Fs);
     string_command = strcat(string_command,'.#');
     
     % envío el comando
@@ -25,9 +41,9 @@ if info.Sampling == 0
     plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
 
     %% Actualizo según la plataforma seleccionada
-    if( plataforma == hs.RadioBut_Infotronic )
+    if( plataforma == hs.RadioBut_LPC1769 )
         % la Fs
-        modeADC.LPC1769.Fs = modeADC.FsToSet;
+        modeADC.LPC1769.Fs = modeADC.LPC1769.Fs_to_set;
         
         % La cantidad de samples a leer del puerto serie de a una vez
         info.SamplesToRead_LPC1769 = ( str2double(modeADC.LPC1769.Fs) / info.MedianaSize ) / 5;
@@ -36,7 +52,7 @@ if info.Sampling == 0
     
     if( plataforma == hs.RadioBut_LPC845 )
         % la Fs
-        modeADC.LPC845.Fs = modeADC.FsToSet;
+        modeADC.LPC845.Fs = modeADC.LPC845.Fs_to_set;
         
         % La cantidad de samples a leer del puerto serie de a una vez
         info.SamplesToRead_LPC845 = ( str2double(modeADC.LPC845.Fs) / info.MedianaSize ) / 5;
@@ -45,7 +61,7 @@ if info.Sampling == 0
 
     if(plataforma == hs.RadioBut_Arduino)
         % la Fs
-        modeADC.Arduino.Fs = modeADC.FsToSet;
+        modeADC.Arduino.Fs = modeADC.Arduino.Fs_to_set;
         
         % La cantidad de samples a leer del puerto serie de a una vez
         info.SamplesToRead_ARDUINO = ( str2double(modeADC.Arduino.Fs) / info.MedianaSize ) / 5;

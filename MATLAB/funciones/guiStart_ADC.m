@@ -37,7 +37,7 @@ hs.strDisplayConfig_LPC845 = uicontrol(hs.Figure,'style','text');
 set(hs.strDisplayConfig_LPC845,'BackgroundColor', BGColor);
 set(hs.strDisplayConfig_LPC845,'units','normalized');
 set(hs.strDisplayConfig_LPC845,'position',[0.4 0.695 0.4 0.06]);
-set(hs.strDisplayConfig_LPC845,'string','ADC0 (pote), 2500 Hz.','fontsize',15);
+set(hs.strDisplayConfig_LPC845,'string','Pote, 2500 Hz.','fontsize',15);
 set(hs.strDisplayConfig_LPC845,'visible','off');
 
 %% Entrada Analógica
@@ -50,7 +50,7 @@ set(hs.strEntrada,'position',[0.07 0.6 0.3 0.05]);
 set(hs.strEntrada,'string','Entrada del kit Infotronic:','fontsize',15);
 set(hs.strEntrada,'visible','off');
 
-% Entradas Infotronic Popup Menu
+% POPUP -- ADC Input Channel LPC1769 (Infotronic Entrada Analógica)
 hs.Popup_EA = uicontrol('style','popupmenu');
 set(hs.Popup_EA,'BackgroundColor', BGColor);
 set(hs.Popup_EA,'units','normalized');
@@ -59,7 +59,7 @@ set(hs.Popup_EA,'string',{'EA2','EA1','EA0'},'fontsize',15);
 set(hs.Popup_EA,'callback',@callback_Popup_EA);
 set(hs.Popup_EA,'visible','off');
 
-% Configurar (para setear entrada del infotronic) PushButton
+% PUSH -- Config ADC Input Channel (Entrada Analógica)
 hs.Push_Config_EA = uicontrol(hs.Figure,'style','pushbutton');
 set(hs.Push_Config_EA,'BackgroundColor', BGColor);
 set(hs.Push_Config_EA,'units','normalized');
@@ -67,6 +67,15 @@ set(hs.Push_Config_EA,'position',[0.55 0.59 0.15 0.07]);
 set(hs.Push_Config_EA,'string','Configurar','fontsize',15);
 set(hs.Push_Config_EA,'callback',@callback_Configurar_EA);
 set(hs.Push_Config_EA,'visible','off');
+
+% POPUP --  ADC Input Channel LPC845
+hs.Popup_EA_LPC845 = uicontrol('style','popupmenu');
+set(hs.Popup_EA_LPC845,'BackgroundColor', BGColor);
+set(hs.Popup_EA_LPC845,'units','normalized');
+set(hs.Popup_EA_LPC845,'position', [0.4 0.6 0.1 0.05]);
+set(hs.Popup_EA_LPC845,'string',{'Pote','ADC8','ADC9'},'fontsize',15);
+set(hs.Popup_EA_LPC845,'callback',@callback_Popup_EA_LPC845);
+set(hs.Popup_EA_LPC845,'visible','off');
 
 hs.strNoArduinoConfig2 = uicontrol(hs.Figure,'style','text');
 set(hs.strNoArduinoConfig2,'BackgroundColor', BGColor);
@@ -85,7 +94,7 @@ set(hs.strFsToSet,'position',[0.07 0.5 0.3 0.05]);
 set(hs.strFsToSet,'string','Frecuencia de muestreo:','fontsize',15);
 set(hs.strFsToSet,'visible','off');
 
-% Frecuencias de Muestreo Popup Menu
+% POPUP - Sample Rate LPC1769
 hs.Popup_Fs = uicontrol('style','popupmenu');
 set(hs.Popup_Fs,'BackgroundColor', BGColor);
 set(hs.Popup_Fs,'units','normalized');
@@ -93,6 +102,15 @@ set(hs.Popup_Fs,'position', [0.4 0.5 0.1 0.05]);
 set(hs.Popup_Fs,'string',{'2500','1600','1000','500','250','100','50','20'},'fontsize',15);
 set(hs.Popup_Fs,'callback',@callback_Popup_Fs);
 set(hs.Popup_Fs,'visible','off');
+
+% POPUP - Sample Rate LPC1769
+hs.Popup_Fs_LPC845 = uicontrol('style','popupmenu');
+set(hs.Popup_Fs_LPC845,'BackgroundColor', BGColor);
+set(hs.Popup_Fs_LPC845,'units','normalized');
+set(hs.Popup_Fs_LPC845,'position', [0.4 0.5 0.1 0.05]);
+set(hs.Popup_Fs_LPC845,'string',{'2500','1600','1000','500','250','100','50','20'},'fontsize',15);
+set(hs.Popup_Fs_LPC845,'callback',@callback_Popup_Fs_LPC845);
+set(hs.Popup_Fs_LPC845,'visible','off');
 
 % Configurar (para setear Sample Rate) PushButton
 hs.Push_Config_Fs = uicontrol(hs.Figure,'style','pushbutton');

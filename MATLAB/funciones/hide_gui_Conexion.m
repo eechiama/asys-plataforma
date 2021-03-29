@@ -5,7 +5,7 @@ function hide_gui_Conexion(hObj)
     % Platform selector
     set(hs.strPlatform,'visible','off');
     set(hs.ButGroup_Plataforma,'visible','off');
-    set(hs.RadioBut_Infotronic,'visible','off');
+    set(hs.RadioBut_LPC1769,'visible','off');
     set(hs.RadioBut_Arduino,'visible','off');
     
     % Serial

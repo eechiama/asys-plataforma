@@ -8,12 +8,12 @@ uiInfo = getappdata(hs.Figure,'uiInfo');
 %% new selection of platform radiobuttons?
 new_select = get(hs.ButGroup_Plataforma,'selectedobject');
 
-if(new_select == hs.RadioBut_Infotronic)
+if(new_select == hs.RadioBut_LPC1769)
     old_select = hs.RadioBut_Arduino;
 end
 
 if(new_select == hs.RadioBut_Arduino)
-    old_select = hs.RadioBut_Infotronic;
+    old_select = hs.RadioBut_LPC1769;
 end
 
 %% protection: don't change platform during sampling
@@ -36,7 +36,7 @@ if new_select == hs.RadioBut_Arduino
     info.SamplesToRead = info.SamplesToRead_ARDUINO;
 end
 
-if ( new_select == hs.RadioBut_Infotronic )
+if ( new_select == hs.RadioBut_LPC1769 )
     % ylim adecuado al adc de 12bits
     set(hs.Edit_Ylim2,'string','4096','fontsize',15);
     % plot stuff
@@ -54,7 +54,7 @@ end
 
 %% Change serial port string according to lpc845/lpc1769
 
-if new_select == hs.RadioBut_Infotronic
+if new_select == hs.RadioBut_LPC1769
     set(hs.Edit_Port,'string','/dev/ttyUSB0','fontsize',15);
 end
 

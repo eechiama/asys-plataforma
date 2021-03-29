@@ -1,14 +1,14 @@
-function callback_Popup_waveform(hObj, event)
+function callback_Popup_waveform_LPC845(hObj, event)
 
 hs = guidata(hObj.Parent);
 modeGEN = getappdata(hs.Figure,'modeGEN');
 
 % Obtengo el dato del popup
-aux = get(hs.Popup_waveform,'string');
-val = get(hs.Popup_waveform,'value');
+aux = get(hs.Popup_waveform_LPC845,'string');
+val = get(hs.Popup_waveform_LPC845,'value');
 
 % Actualizo la señal a pedirle al generador
-modeGEN.arduino.signal = aux{val};
+modeGEN.LPC845.signal = aux{val};
 
 setappdata(hs.Figure,'modeGEN',modeGEN);
 guidata(hObj.Parent, hs);

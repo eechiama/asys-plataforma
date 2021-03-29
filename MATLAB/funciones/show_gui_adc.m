@@ -9,7 +9,7 @@ function show_gui_adc(hObj, platform)
     set(hs.Push_Config_Fs,'visible','on');
     
     % case: platform == infotronic
-    if( platform == hs.RadioBut_Infotronic )
+    if( platform == hs.RadioBut_LPC1769 )
         set(hs.strDisplayConfig,'visible','on');
         set(hs.strEntrada,'visible','on');
         set(hs.Popup_EA,'visible','on');
@@ -25,6 +25,9 @@ function show_gui_adc(hObj, platform)
     % case: plataforma == LPC845
     if( platform == hs.RadioBut_LPC845 )
         set(hs.strDisplayConfig_LPC845,'visible','on');
+        set(hs.strEntrada,'visible','on');
+        set(hs.Popup_EA_LPC845,'visible','on');
+        set(hs.Push_Config_EA,'visible','on');
     end
     
     % Save changed handles to handles structure on guiData

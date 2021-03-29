@@ -17,7 +17,7 @@ if new_select == hs.RadioBut_Buttons
     
     % CASE: Plataforma Infotronic
     % show notice that buttons are not implemented on kit infotronic
-    if(plataforma == hs.RadioBut_Infotronic)
+    if(plataforma == hs.RadioBut_LPC1769)
     set(hs.Text_buttons_NoInfotronic,'visible','on');
     end
     
@@ -39,7 +39,7 @@ if new_select == hs.RadioBut_Generator
     
     % CASE: Plataforma Infotronic
     % show notice that generator is not implemented on kit infotronic
-    if(plataforma == hs.RadioBut_Infotronic)
+    if(plataforma == hs.RadioBut_LPC1769)
     set(hs.Text_pwm_NoInfotronic,'visible','on');
     end
     
@@ -72,7 +72,7 @@ if new_select == hs.RadioBut_ADQ
 
     
     %% CASE: Plataforma Infotronic
-    if(plataforma == hs.RadioBut_Infotronic)
+    if(plataforma == hs.RadioBut_LPC1769)
         % show infotronic-specific ADC stuff
         set(hs.Text_DisplayConfig,'visible','on');
         set(hs.Text_Entrada,'visible','on');

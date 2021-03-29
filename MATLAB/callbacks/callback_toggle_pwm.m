@@ -9,39 +9,39 @@ if info.SerialOpened == 0
     return;
 end
 
-%% en caso de start, construyo el comando a enviar
+% plataforma actual?
+plataforma = get(hs.ButGroup_Plataforma,'selectedobject');
 
-% identifico la señal a pedirle al generador
-if strcmp(modeGEN.signal, 'rampa 245hz')
-    waveform = 'R';    
-end
+%% Según plataforma seleccionada, identifico código de waveform a enviar
 
-if strcmp(modeGEN.signal, 'logic high')
-    waveform = 'H';
-end
-    
-if strcmp(modeGEN.signal, 'senoidal 500hz')
-    waveform = 'S';    
+if plataforma == hs.RadioBut_Arduino
+    aux_gen = modeGEN.arduino;
+    aux_str_list = get(hs.Popup_waveform,'string');
+    aux_waveform_codes = {'R', 'H', 'S', 'Q', 'E', 'I'};
 end
 
-if strcmp(modeGEN.signal, 'cuadrada 500hz')
-    waveform = 'Q';
+if plataforma == hs.RadioBut_LPC845
+    aux_gen = modeGEN.LPC845;
+    aux_str_list = get(hs.Popup_waveform_LPC845,'string');
+    aux_waveform_codes = {'S', 'R', 'Q'};
 end
 
-if strcmp(modeGEN.signal, 'ECG2')
-    waveform = 'E';    
+for idx=1:length(aux_str_list)
+    if( strcmp(aux_gen.signal, aux_str_list(idx)) )
+        waveform = aux_waveform_codes(idx);
+        break;
+    end
 end
 
-if strcmp(modeGEN.signal, 'impulso 500hz')
-    waveform = 'I';    
-end
+%% construyo el comando a enviar (en caso de start)
 
 % comando
 pwm_command = '$P1,';
 pwm_command = strcat(pwm_command, waveform);
 pwm_command = strcat(pwm_command, ',');
-pwm_command = strcat(pwm_command, modeGEN.divider);
+pwm_command = strcat(pwm_command, aux_gen.divider);
 pwm_command = strcat(pwm_command,'.#');
+pwm_command = char(pwm_command);
 
 %% envío el comando
 switch info.Generator

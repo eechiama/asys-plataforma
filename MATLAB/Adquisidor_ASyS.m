@@ -31,19 +31,26 @@ muestras=[];
 
 % Mode ADC
 % Frequency
-modeADC.FsToSet = '2500';
 modeADC.LPC1769.Fs = '2500';
+modeADC.LPC1769.Fs_to_set = '2500';
 modeADC.Arduino.Fs = '2500';
+modeADC.Arduino.Fs_to_set = '2500';
 modeADC.LPC845.Fs = '2500';
+modeADC.LPC845.Fs_to_set = '2500';
 % Input Infotronic v1
-modeADC.LPC1769.EA_infotronic = '2'; 
+modeADC.LPC1769.EA_infotronic = '2';
 modeADC.LPC1769.EA_to_set = 'EA2';
 % Input LPC845
 modeADC.LPC845.channel = '0';
+modeADC.LPC845.channel_to_set = 'Pote';
 
 % Mode Generator
-modeGEN.signal = 'rampa 245hz'; % default
-modeGEN.divider = '1';
+modeGEN.arduino.signal = 'rampa 245hz';
+modeGEN.arduino.divider = '1';
+modeGEN.LPC845.signal = 'senoidal'; % default LPC845
+modeGEN.LPC845.divider = '1';
+
+
 
 % Modo Botones
 modeBUTTONS.signal = 'senoidal 500hz';
