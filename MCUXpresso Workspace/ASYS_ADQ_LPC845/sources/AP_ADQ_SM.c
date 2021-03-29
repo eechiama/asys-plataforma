@@ -7,10 +7,6 @@
  *
  **********************************************************************************************************************************/
 
-// ===================================
-//	Includes
-// ===================================
-
 #include <AP_ADQ_SM.h>
 
 #include <AP_LEDS.h>
@@ -20,10 +16,6 @@
 #include <AP_ADC.h>
 #include <AP_ADQ_COMMANDS.h>
 
-// ===================================
-//	Private constants
-// ===================================
-
 #define SIZE_SIGNAL_1	200
 #define SIZE_SIGNAL_2	85
 
@@ -31,10 +23,6 @@
 #define	ADC_DATA_PKG_SIZE	4
 
 #define	ADC_SAMPLES_BUFFER_LENGTH	1
-
-// ===================================
-//	Private datatypes
-// ===================================
 
 typedef enum {
 	ADQ_RESET,
@@ -52,10 +40,6 @@ typedef enum {
 	SELECT_SIGNAL_1,
 	SELECT_SIGNAL_2
 }signal_select_en;
-
-// ===================================
-//	Private tables
-// ===================================
 
 static const unsigned char test_signal_1[] = {
 	90, 95, 124, 153, 182, 211, 241, 230, 202, 173,
@@ -98,25 +82,15 @@ static const unsigned char test_signal_sizes[] = {
 };
 
 static const unsigned char * const ptr_signal_tables[] = {
-	&test_signal_1,
-	&test_signal_2
+	(void *)&test_signal_1,
+	(void *)&test_signal_2
 };
 
-// ===================================
-//	Shared global variables
-// ===================================
-
-// ===================================
-//	Private global variables
-// ===================================
-
 static volatile unsigned short int adc_samples[ADC_SAMPLES_BUFFER_LENGTH] = {0};
-static unsigned int inx_samples = 0;
-static char flag_sending = 0;
 
-// ===================================
-//	Private function headers
-// ===================================
+static unsigned int inx_samples = 0;
+
+static char flag_sending = 0;
 
 /**
  * @brief		Takes a sample and makes a data package according to the communication protocol.
@@ -125,7 +99,7 @@ static char flag_sending = 0;
  * @return		Returns a value informing operation success or failure,
  * 				the same value returned by TransmitBytes.
  */
-transmit_bytes_result_en TransmitSample( unsigned short int samp );
+static transmit_bytes_result_en TransmitSample( unsigned short int samp );
 
 /**
  * @brief		Selects a test signal from the internal test signal tables according to parameter 'signal_choice'.
@@ -133,13 +107,9 @@ transmit_bytes_result_en TransmitSample( unsigned short int samp );
  * 				On every call to this function a single sample is queued for transmission, until the end of the
  * 				selected signal table is reached.
  */
-tx_test_status_en tx_test_signal( signal_select_en signal_choice );
+static tx_test_status_en tx_test_signal( signal_select_en signal_choice );
 
-// ===================================
-//	Private functions
-// ===================================
-
-transmit_bytes_result_en TransmitSample( unsigned short int samp ) {
+static transmit_bytes_result_en TransmitSample( unsigned short int samp ) {
 	unsigned char adc_data_pkg[ADC_DATA_PKG_SIZE];
 
 	// ADC data 12 bit long, the 4 MSB are placed first on the message.
@@ -151,7 +121,7 @@ transmit_bytes_result_en TransmitSample( unsigned short int samp ) {
 	return TransmitBytes(adc_data_pkg, ADC_DATA_PKG_SIZE);
 }
 
-tx_test_status_en tx_test_signal( signal_select_en signal_choice ){
+static tx_test_status_en tx_test_signal( signal_select_en signal_choice ){
 	static unsigned char inx = 0;
 	unsigned char test_signal_pkg[TEST_SIGAL_PKG_SIZE];
 //	unsigned int i = 0;
@@ -178,10 +148,6 @@ tx_test_status_en tx_test_signal( signal_select_en signal_choice ){
 	return TX_DOING;
 }
 
-// ===================================
-//	Public functions
-// ===================================
-
 void ADQ_SM(void) {
 
 	static tx_test_status_en	tx_signal_status = TX_DONE;
@@ -193,13 +159,14 @@ void ADQ_SM(void) {
 
 		case ADQ_RESET:
 			state = ADQ_IDLE;
+			adc_stop();
 			leds_off();
 			set_led(LED_GREEN);
 			break;
 
 		case ADQ_IDLE:
 
-			if ( command == START_ADC && tx_signal_status == TX_DONE) {
+			if ( command == ADC_START && tx_signal_status == TX_DONE) {
 				command = NO_COMMAND;
 				state = ADQ_ACTIVE;
 				flag_sending = 0;
@@ -261,7 +228,7 @@ void ADQ_SM(void) {
 				}
 			}
 
-			if ( command == STOP_ADC ) {
+			if ( command == ADC_STOP ) {
 				command = NO_COMMAND;
 				state = ADQ_IDLE;
 				adc_stop();

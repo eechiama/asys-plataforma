@@ -6,35 +6,11 @@
  * @version	1.0
  */
 
-/*
- * Asumiendo que el LPC845 está corriendo con el FRO como system clock a 24MHz
- * Quiero default SAMPLE RATE para el ADQ de 2.5kHz
- * (ADC configurado con conversiones disparadas por hardware trigger en flanco ascendente de ctimer match 3)
- *
- * CTIMER con PRESCALER = 0 entonces también corre a 24MHz
- * Match value es 4800 => 24e6/4800 = 5kHz
- * Tendré flanco ascendente con frecuencia 2.5kHz
- */
-
-// ===================================
-//	Includes
-// ===================================
-
 #include "../includes/AP_ADC.h"
 
 #include <HAL_ADC.h>
 #include <HAL_CTIMER.h>
 #include <stddef.h>
-
-// ===================================
-//	Private function headers
-// ===================================
-
-static void adc_callback(void);
-
-// ===================================
-//	Private constants
-// ===================================
 
 #define		ADC_SAMPLE_RATE		480e3
 #define		ADC_SEQUENCE		HAL_ADC_SEQUENCE_SEL_A
@@ -44,23 +20,13 @@ static void adc_callback(void);
 #define		DEFAULT_CTIMER_MATCH_FREQ			(DEFAULT_SAMPLING_RATE * 2)
 #define		DEFAULT_CTIMER_MATCH_FREQ_USEG		( (1/((float)DEFAULT_CTIMER_MATCH_FREQ)) / (float)1e-6 )
 
-// ===================================
-//	Private datatypes
-// ===================================
+/**
+ * @brief		Callback for ADC interrupt.
+ */
+static void adc_callback(void);
 
-// ===================================
-//	Private tables
-// ===================================
-
-// ===================================
-//	Shared global variables
-// ===================================
-
+// shared global variable
 volatile char flag_adc_samples_ready = 0;
-
-// ===================================
-//	Private global variables
-// ===================================
 
 static hal_adc_sequence_config_t adc_config =
 {
@@ -95,10 +61,6 @@ static uint32_t samples_buffer_length = 1;
 static volatile uint16_t *samples_buffer = &adc_sample;
 static volatile uint32_t inx_samples = 0;
 
-// ===================================
-//	Private functions
-// ===================================
-
 static void adc_callback(void)
 {
 	hal_adc_sequence_result_t adc_result;
@@ -112,10 +74,6 @@ static void adc_callback(void)
 		if( !inx_samples ) flag_adc_samples_ready = 1;
 	}
 }
-
-// ===================================
-//	Public functions
-// ===================================
 
 void adc_init(void){
 	hal_adc_init_sync_mode(ADC_SAMPLE_RATE, HAL_ADC_LOW_POWER_MODE_DISABLED);

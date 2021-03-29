@@ -1,53 +1,24 @@
 /**
  * @file	AP_ADQ_COMMANDS.c
  * @brief	x
- * @author	Esteban E. Chiama
+ * @author	Esteban Chiama
  * @date	Aug 14, 2020
  * @version	1.0
  */
 
-// ===================================
-//	Includes
-// ===================================
-
 #include "../includes/AP_ADQ_COMMANDS.h"
+#include <AP_DEBUG.h>
 
-// ===================================
-//	Private constants
-// ===================================
-
-// ===================================
-//	Private datatypes
-// ===================================
-
-// ===================================
-//	Private tables
-// ===================================
-
-// ===================================
-//	Shared global variables
-// ===================================
-
+// Shared global variables
+// ====================================
 volatile commands_en command = NO_COMMAND;
 
 volatile unsigned char rx_channel = 2;
 volatile unsigned short int rx_sampleRate = 2500;
 
-// ===================================
-//	Private global variables
-// ===================================
-
-// ===================================
-//	Private function headers
-// ===================================
-
-// ===================================
-//	Private functions
-// ===================================
-
-// ===================================
-//	Public functions
-// ===================================
+volatile unsigned short int rx_divider = 1;
+volatile signal_sel_en rx_waveform = 0;
+// =====================================
 
 void command_interpreter( const unsigned char word[] ){
 	unsigned char digits = 0;
@@ -58,10 +29,10 @@ void command_interpreter( const unsigned char word[] ){
 	if ((word[0]) == 'M') {
 
 		if((word[1]) == '0') {
-			command = STOP_ADC;
+			command = ADC_STOP;
 		}
 		else if ((word[1]) == '1') {
-			command = START_ADC;
+			command = ADC_START;
 		}
 	}
 
@@ -121,5 +92,48 @@ void command_interpreter( const unsigned char word[] ){
 		if ( word[1] == '2' ) {
 			command = SEND_TEST_SIGNAL_2;
 		}
+	}
+
+	// Comando para activar el generador de señales.
+	// Formato: P1,X,YYY.
+	// Donde X refiere al tipo de señal:
+	//		S = seno,
+	//		R = rampa,
+	//		Q = square
+	// YYY refiere al divisor de frecuencia (debe ser un num entre 1 y 999)
+	if ( (word[0] == 'P') && (word[1] == '1') && (word[2] == ',') && (word[4] == ',') ) {
+	digits = 1;
+	if ( word[6] != '.' ) digits++;
+	if ( word[7] != '.' ) digits++;
+
+	if ( digits == 1 ) {
+		rx_divider = word[5] - 48;
+	}
+	if ( digits == 2 ) {
+		rx_divider = ( word[5] - 48 ) * 10 + (word[6] - 48);
+	}
+	if ( digits == 3 ) {
+		rx_divider = ( word[5] - 48 ) * 100 + (word[6] - 48) * 10 + (word[7] - 48);
+	}
+
+	if ( word[3] == 'S' ){
+		rx_waveform = SINEWAVE;
+	}
+	else if ( word[3] == 'R' ){
+		rx_waveform = RAMP;
+	}
+	else if ( word[3] == 'Q' ){
+		rx_waveform = SQUARE;
+	}
+	else{
+		rx_waveform = SINEWAVE; // default
+	}
+	command = GENERATOR_START;
+	}
+
+	// Comando para desactivar la salida de PWM
+	// Formato: P0
+	if ( (word[0] == 'P') && (word[1] == '0') ) {
+		command = GENERATOR_STOP;
 	}
 }

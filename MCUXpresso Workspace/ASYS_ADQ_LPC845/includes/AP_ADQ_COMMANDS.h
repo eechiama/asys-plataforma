@@ -9,13 +9,7 @@
 #ifndef AP_ADQ_COMMANDS_H_
 #define AP_ADQ_COMMANDS_H_
 
-// ===================================
-//	Includes
-// ===================================
-
-// ===================================
-//	Constants
-// ===================================
+#include <AP_GENERATOR.h>
 
 #define COMMAND_MAX_LENGTH		7
 
@@ -23,35 +17,27 @@
 #define START_SYMBOL_DATA		'%'
 #define	END_SYMBOL				'#'
 
-// ===================================
-//	Datatypes
-// ===================================
-
 typedef enum {
 	NO_COMMAND = 0,
-	START_ADC,
-	STOP_ADC,
+	ADC_START,
+	ADC_STOP,
 	CONFIG_SR,
 	CONFIG_INPUT,
 	SEND_TEST_SIGNAL_1,
-	SEND_TEST_SIGNAL_2
+	SEND_TEST_SIGNAL_2,
+	GENERATOR_START,
+	GENERATOR_STOP
 } commands_en;
 
-// ===================================
-//	Tables
-// ===================================
-
-// ===================================
-//	Shared global variables
-// ===================================
-
 extern volatile commands_en command;
+
 extern volatile unsigned short int rx_sampleRate;
+
 extern volatile unsigned char rx_channel;
 
-// ===================================
-//	Function headers
-// ===================================
+extern volatile unsigned short int rx_divider;
+
+extern volatile signal_sel_en rx_waveform;
 
 /**
  * @brief		Reads character array 'word' and tries to decipher any incoming commands.

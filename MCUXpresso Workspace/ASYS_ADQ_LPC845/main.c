@@ -19,6 +19,8 @@
 #include "../includes/AP_ADC.h"
 #include "../includes/AP_ADQ_COMMANDS.h"		// debo revisar y colocarlo en carpeta portables
 #include "../includes/AP_ADQ_SM.h"				// debo revisar y colocarlo en carpeta portables
+#include <AP_GENERATOR.h>
+#include <AP_GENERATOR_SM.h>
 
 #define MSG_MAX_LENGTH		COMMAND_MAX_LENGTH
 
@@ -46,12 +48,14 @@ int main(void) {
 	hal_syscon_frg_config(0, HAL_SYSCON_FRG_CLOCK_SEL_MAIN_CLOCK, 47);
 
 	init_leds();
-	init_uart();
+	init_uart(HAL_USART_SEL_0);
 	adc_init();
+	generator_init();
 
     while(1) {
     	RX_Messages_SM(&protocol);
     	ADQ_SM();
+    	Generator_SM();
     }
 
     return 0 ;

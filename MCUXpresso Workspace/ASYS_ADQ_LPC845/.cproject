@@ -49,7 +49,6 @@
 									<listOptionValue builtIn="false" value="/home/stv/code-embedded/LPC845/includes"/>
 									<listOptionValue builtIn="false" value="/home/stv/code-embedded/portable/includes"/>
 									<listOptionValue builtIn="false" value="/home/stv/repos/Modulos/Modulos/includes"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ASYS_ADQ_LPC845/includes Libreria_LPC845 HAL}&quot;"/>
 								</option>
 								<option id="com.crt.advproject.gcc.fpu.439030533" name="Floating point" superClass="com.crt.advproject.gcc.fpu" useByScannerDiscovery="true"/>
 								<option id="com.crt.advproject.c.misc.dialect.432979830" name="Language standard" superClass="com.crt.advproject.c.misc.dialect" useByScannerDiscovery="true"/>
@@ -129,7 +128,6 @@
 								<option id="com.crt.advproject.link.crpenable.219393798" name="Enable automatic placement of Code Read Protection field in image" superClass="com.crt.advproject.link.crpenable" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.paths.1289885391" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/home/stv/repos/LPC845/Libreria_LPC845/Debug"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ASYS_ADQ_LPC845}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.libs.920975335" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="Libreria_LPC845"/>
@@ -183,8 +181,11 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="sources" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src_linked_modulos|src_linked_LPC845|src_linked_portable|sources" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="sources"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src_linked_LPC845"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src_linked_modulos"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src_linked_portable"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -363,7 +364,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="sources" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+						<entry excluding="src_linked|sources" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="sources"/>
 					</sourceEntries>
 				</configuration>
@@ -405,7 +406,14 @@
 		<boardId>LPCXpresso845-MAX</boardId>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/ASYS_ADQ_LPC845"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/ASYS_ADQ_LPC845"/>
+		</configuration>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.112441899;com.crt.advproject.config.exe.debug.112441899.;com.crt.advproject.gcc.exe.debug.873419663;com.crt.advproject.compiler.input.1170625768">
