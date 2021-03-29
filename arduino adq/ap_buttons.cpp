@@ -1,42 +1,44 @@
-/* ========= include files =========== */
-/* =================================== */
 #include <Arduino.h>
 #include "ap_buttons.h"
 #include "ap_uart.h"
 #include "dr_buttons.h"
 
-/* ======== private constants ======== */
-/* =================================== */
-
 // on_sequence_step
 const int SEQUENCE_ON_PWM = 1;
+
 const int SEQUENCE_ON_SAMPLE_RATE = 2;
+
 const int SEQUENCE_ON_ADC = 3;
+
 const int SEQUENCE_ON = 4;
+
 
 // off_sequence_step
 const int SEQUENCE_OFF_ADC = 10;
+
 const int SEQUENCE_OFF_SAMPLE_RATE = 11;
+
 const int SEQUENCE_OFF_PWM = 12;
+
 const int SEQUENCE_OFF = 13;
+
 
 // sequence on-going indicator (sequence_status)
 const int SEQUENCE_BUSY = 20;
+
+
 const int SEQUENCE_NOT_BUSY = 21;
 
-/* ======== private datatypes ======== */
-/* =================================== */
 
 /* ==== private global variables ===== */
 /* =================================== */
 volatile uint8_t sequence_status = SEQUENCE_NOT_BUSY;
 
-/* ==== shared global variables ====== */
-/* =================================== */
 
 /* ======= private prototypes ======== */
 /* =================================== */
 void button_sequence( void );
+
 
 /* ======= private functions ========= */
 /* =================================== */
@@ -94,6 +96,7 @@ void button_sequence( void ){
   }
 
 }
+
 
 /* ======== public functions ========= */
 /* =================================== */

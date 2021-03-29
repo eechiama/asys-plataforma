@@ -1,18 +1,15 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "pr_timer2_pwm.h"
 #include "dr_timer2_pwm.h"
 
-/* ======== private constants ======== */
-/* =================================== */
 const uint8_t SINE_SIZE = 125;
-const uint16_t RAMP_SIZE = 256;
-const uint8_t SQUARE_SIZE = 125;
-const uint8_t IMPULSE_SIZE = 125;
-const uint8_t ECG2_SIZE = 85;
 
-/* ======== private datatypes ======== */
-/* =================================== */
+const uint16_t RAMP_SIZE = 256;
+
+const uint8_t SQUARE_SIZE = 125;
+
+const uint8_t IMPULSE_SIZE = 125;
+
+const uint8_t ECG2_SIZE = 85;
 
 // LUT senoidal, 125 puntos
 const uint8_t sine_wave[ SINE_SIZE ] = {
@@ -104,15 +101,8 @@ const uint8_t ecg2[ ECG2_SIZE ] = {
 114, 114, 114, 112, 108, 100,  94,  94,
 93,  90,  90,  94,  94  };
 
-
-/* ==== private global variables ===== */
-/* =================================== */
-
-/* ==== shared global variables ====== */
-/* =================================== */
-
-/* ======= private prototypes ======== */
-/* =================================== */
+/* ======= public functions ======== */
+/* ================================= */
 
 void pwm_config( uint8_t inx, uint16_t divider ){
   

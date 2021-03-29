@@ -1,26 +1,19 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "dr_adc.h"
 #include <TimerOne.h>
 
-/* ======== private constants ======== */
-/* =================================== */
 const byte adcPin = 0;                      // Pin de entrada del ADC: A0
-const int PERIOD_DEFAULT = 400;             // microsegundos, para fs = 2500Hz
 
-/* ======== private datatypes ======== */
-/* =================================== */
+const int PERIOD_DEFAULT = 400;             // microsegundos, para fs = 2500Hz
 
 /* ==== private global variables ===== */
 /* =================================== */
 volatile uint8_t f_sample_ready = 0;
-volatile uint16_t adc_sample = 0;
 
-/* ==== shared global variables ====== */
-/* =================================== */
+volatile uint16_t adc_sample = 0;
 
 /* ======= private prototypes ======== */
 /* =================================== */
+
 void ADC_Convert_Start(void);
 
 /* ======= private functions ========= */

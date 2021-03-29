@@ -1,30 +1,22 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "dr_timer2_pwm.h"
 
-/* ======== private constants ======== */
-/* =================================== */
 const byte PIN_OC2A = 11;     // PWM PIN
-const uint8_t NO_DATA = 0;    // LUT init size
 
-/* ======== private datatypes ======== */
-/* =================================== */
+const uint8_t NO_DATA = 0;    // LUT init size
 
 /* ==== private global variables ===== */
 /* =================================== */
+
 static const uint8_t *LUT = NULL;
+
 static uint16_t LUT_size = NO_DATA;
+
 static volatile uint16_t LUT_inx = 0;
 
 // para dividir la frecuencia
 static volatile uint16_t count = 1;
+
 static uint16_t freqDivider = 1;
-
-/* ==== shared global variables ====== */
-/* =================================== */
-
-/* ======= private prototypes ======== */
-/* =================================== */
 
 /* ======= private functions ========= */
 /* =================================== */

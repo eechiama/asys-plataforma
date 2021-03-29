@@ -1,28 +1,21 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "ap_uart.h"
 #include "ap_buttons.h"
 
-/* ======== private constants ======== */
-/* =================================== */
-
 // estados para la MDE de recepción de mensajes
 const int ESPERANDO_TRAMA = 0;
+
 const int RECIBIENDO_TRAMA = 1;
 
 const int MAX_TRAMA_RX = 9;
 
-/* ======== private datatypes ======== */
-/* =================================== */
-
-/* ==== private global variables ===== */
-/* =================================== */
-
 /* ==== shared global variables ====== */
 /* =================================== */
 volatile uint8_t command = NO_COMMAND;
+
 volatile uint16_t rx_fmuestreo = 2500;
+
 volatile uint16_t rx_pwm_divider = 1;
+
 volatile uint8_t inx_waveform_command = 0;
 
 /* ======= private prototypes ======== */

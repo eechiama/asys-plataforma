@@ -1,32 +1,14 @@
-/* ========= include files =========== */
-/* =================================== */
 #include <Arduino.h>
 #include "ap_generator.h"
 #include "ap_uart.h"
 #include "pr_timer2_pwm.h"
 
-/* ======== private constants ======== */
-/* =================================== */
-
 // estado_generador
 const uint8_t GENERATOR_RESET = 0;
+
 const uint8_t GENERATOR_WAITING = 1;
+
 const uint8_t GENERATOR_ACTIVE = 3;
-
-/* ======== private datatypes ======== */
-/* =================================== */
-
-/* ==== private global variables ===== */
-/* =================================== */
-
-/* ==== shared global variables ====== */
-/* =================================== */
-
-/* ======= private prototypes ======== */
-/* =================================== */
-
-/* ======= private functions ========= */
-/* =================================== */
 
 /* ======== public functions ========= */
 /* =================================== */

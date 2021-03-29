@@ -1,37 +1,33 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "ap_adquisidor.h"
 #include "ap_uart.h"
 #include "ap_filtro.h"
 #include "pr_adc.h"
 #include <Arduino.h>
 
-/* ======== private constants ======== */
-/* =================================== */
-
 // PARA LA VARIABLE: estado_medidor
 const int MEDIDOR_RESET = 0;
+
 const int MEDIDOR_INACTIVO = 1;
+
 const int MEDIDOR_ACTIVO = 2;
 
 // Constantes para indicar la tx status de la señal de prueba
 const int TX_DOING = 0;
-const int TX_DONE = 1;
 
-/* ======== private datatypes ======== */
-/* =================================== */
+const int TX_DONE = 1;
 
 /* ==== private global variables ===== */
 /* =================================== */
-static volatile uint32_t estado_medidor = MEDIDOR_RESET;
 
-/* ==== shared global variables ====== */
-/* =================================== */
+static volatile uint32_t estado_medidor = MEDIDOR_RESET;
 
 /* ======= private prototypes ======== */
 /* =================================== */
+
 uint8_t tx_Test_Signal_1( void );
+
 uint8_t tx_Test_Signal_2( void );
+
 uint8_t tx_Test_Signal_3( void );
 
 void enviar_muestra( uint16_t MuestraEfectiva );

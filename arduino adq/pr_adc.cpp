@@ -1,29 +1,6 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "pr_adc.h"
 #include "dr_adc.h"
 #include <TimerOne.h>
-
-/* ======== private constants ======== */
-/* =================================== */
-
-/* ======== private datatypes ======== */
-/* =================================== */
-
-/* ==== private global variables ===== */
-/* =================================== */
-
-/* ==== shared global variables ====== */
-/* =================================== */
-
-/* ======= private prototypes ======== */
-/* =================================== */
-
-/* ======= private functions ========= */
-/* =================================== */
-
-/* ======== public functions ========= */
-/* =================================== */
 
 // Función para leer una muestra del adc y colocarla en *value.
 // @return false si no había ninguna muestra lista del adc.

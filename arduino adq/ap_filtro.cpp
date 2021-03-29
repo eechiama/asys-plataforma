@@ -1,20 +1,11 @@
-/* ========= include files =========== */
-/* =================================== */
 #include "ap_filtro.h"
-
-/* ======== private constants ======== */
-/* =================================== */
-
-/* ======== private datatypes ======== */
-/* =================================== */
 
 /* ==== private global variables ===== */
 /* =================================== */
-volatile uint16_t bufValues[BUFSIZE];
-static uint8_t inxbuf = 0;
 
-/* ==== shared global variables ====== */
-/* =================================== */
+volatile uint16_t bufValues[BUFSIZE];
+
+static uint8_t inxbuf = 0;
 
 /* ======= private prototypes ======== */
 /* =================================== */

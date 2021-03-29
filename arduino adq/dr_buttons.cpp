@@ -1,12 +1,9 @@
-/* ========= include files =========== */
-/* =================================== */
 #include <Arduino.h>
 #include "dr_buttons.h"
 
-/* ======== private constants ======== */
-/* =================================== */
 // pins
 const int buttonPin = 2;
+
 const int ledPin = 4;
 
 // debounce accept state change condition
@@ -15,11 +12,10 @@ const int CHANGE_IS_STABLE = 10000;
 // push buttons circuit logic (active high / active low)
 const uint8_t PUSHED = HIGH;
 
-/* ======== private datatypes ======== */
-/* =================================== */
 
 /* ==== private global variables ===== */
 /* =================================== */
+
 // for debounce
 static int count_changes = 0;
 
@@ -29,12 +25,6 @@ volatile uint8_t currentState;
 /* ==== shared global variables ====== */
 /* =================================== */
 volatile uint8_t sequence_enabled = 0;
-
-/* ======= private prototypes ======== */
-/* =================================== */
-
-/* ======= private functions ========= */
-/* =================================== */
 
 /* ======== public functions ========= */
 /* =================================== */
