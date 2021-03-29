@@ -1,0 +1,43 @@
+En el Arduino
+==============
+
+file:   ap_filtro.h
+
+* Enable/disable the filter
+Uncomment/comment the line '#define FILTER'
+
+* Modify the amount of samples taken before applying the median filter
+'const byte BUFSIZE = x'
+It must be an even number >= 4
+
+NOTE: Remember the median filter is implemented for an even amount of
+samples (it sums the central values of the buffer and takes the average).
+
+
+En el LPC1769
+==============
+
+file:   PR_ADC.h
+
+constant:   #define SIZE
+
+* To disable the median filter set SIZE to 1
+
+* To modify the amount of samples taken before applying the median filter set
+SIZE to your liking. It must be an even number >= 4
+
+NOTE: Remember the median filter is implemented for an even amount of
+samples (it sums the central values of the buffer and takes the average).
+
+
+En el script de la app de MATLAB
+=================================
+
+variable:   info.MedianaSize
+(On the main script)
+
+This value is used to set the correct step (dt) between samples at the time of
+plotting.
+
+* If the filter is not applied, set the variable to 1.
+* Otherwise, set it to the amount of samples taken to calculate the median.

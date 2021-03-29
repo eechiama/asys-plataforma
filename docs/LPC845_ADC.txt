@@ -1,0 +1,26 @@
+Funcionamiento básico
+======================
+
+CTIMER genera una señal interna que togglea entre HIGH y LOW.
+ADC dispara conversiones por hardware según flanco ascendente de aquella señal.
+Al terminar la conversión genera una IRQ.
+
+Detalles de Clock y Frecuencia
+================================
+
+LPC845 FRO @ 24 MHz
+Y el mismo seteado para ser el System Clock.
+
+CTIMER @ 24 Mhz (PRESCALER = 0)
+
+Para por ejemplo obtener el valor default de frecuencia de muestreo (2,5 kHz):
+Match value = 4800
+
+CTIMER F_clk =  24M  = 5kHz
+ Match val	4800
+
+Generará flanco ascendente con frecuencia 2,5 kHz.
+Y estos flancos disparan las conversiones del ADC.
+
+Los distintos valores de frecuencia de muestreo se generan modificando el valor de
+Match del CTIMER para que este dispare con el doble de la misma.

@@ -1,0 +1,33 @@
+Puerto Serie en tu PC
+======================
+
+
+Desde MATLAB
+=============
+
+Tenemos varias herramientas disponibles para saber el nombre del puerto serie
+que se generó en nuestra PC al conectar nuestro microcontrolador.
+
+* MATLAB versión >= 2017b:		seriallist
+
+* MATLAB versión >= 2019b:		serialportlist
+
+* MATLAB con el toolbox Instrument Control:	instrhwinfo('serial')
+
+
+Desde Linux
+============
+
+Abrir una terminal e ingresar:		dmesg | grep ttyUSB
+
+Si estamos hace un rato conectando y desconectando puede que haya muchas entradas
+con ese nombre y nos cueste discernir cuál corresponde a nuestra última conexión
+del cable USB.
+Para este caso podemos desconectar el cable USB (asegurarse de haber cerrado el
+puerto en MATLAB o CUTECOM o lo que sea que estén utilizando en donde hayan
+abierto el puerto) y luego ingresar en la terminal:
+
+	dmesg --follow
+
+Ahora conectemos nuevamente el cable USB y podemos observar el mensaje en la
+terminal que nos indica el nombre del puerto.

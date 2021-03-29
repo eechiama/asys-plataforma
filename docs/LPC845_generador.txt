@@ -1,0 +1,38 @@
+Funcionamiento básico
+======================
+
+Utilizo el WKT para disparar interrupciones en donde se actualice el valor
+analógico generado por el DAC.
+Utilizo el canal del DAC: DACOUT1
+
+WKT Timer
+=========
+
+Es un timer One-Shot, se le pone una cuenta y cuando llega a 0 dispara una
+interrupción y se apaga.
+Lo uso con el FRO Clock como source y genera una frecuencia de tick de 750kHz.
+
+Coloco un valor de cuenta:	WKT_RELOAD_VALUE	12
+
+Y entonces: (750kHz/12) = 62.5kHz	(16 useg)
+
+Esa es la frecuencia con la que disparo las interrupciones.
+En ellas actualizo el valor analógico del DAC y vuelvo a disparar el WKT.
+
+Como utilizo señales generadas con 125 puntos, la frecuencia de las señales
+periódicas será:
+
+62.5k valores .  1    ciclo	=	500 Hz
+	seg	125  valores
+
+Señales de otras frecuencias
+=============================
+
+Puedo generar señales de otras frecuencias si solamente cambio el valor del DAC
+cada X interrupciones del WKT.
+
+Por ejemplo:
+
+62.5kHz IRQ_WKT .  1   valor   .  1    ciclo	= 50 Hz
+	 seg	  10  IRQ_WKT	 125  valores
+

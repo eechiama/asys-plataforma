@@ -1,0 +1,41 @@
+F(Timer clk) = SysClk / prescaler
+                                 
+Fast PWM mode
+==============
+
+The PWM cycle takes 256 ticks.
+
+Fpwm = F(Timer clk)  *   1 cycle
+               		 256 ticks
+
+Fpwm = 16M / ( 1 * 256 ) = 62.5 kHz
+
+62500 PWM values per second.
+
+Take a sine wave and sample a cycle on 125 points.
+
+62500 values * 1 cycle    = 500 cycles
+       sec    125 values         sec
+
+We get 500 cycles per second of the 125-point sine wave.
+
+
+Generating different frequencies of the signal
+================================================
+
+The Fpwm is a multiple of the sine frequency we want.
+There are 2 ways to modify the frequency of the signal:
+
+- Constitue the LUT table of the signal with a different amount of points.
+For example, a 500 point LUT table of a sine wave would generate a 125 Hz signal.
+(Not flexible, not recommended)
+
+- Instead of updating the duty cicle on each pwm cycle, do it on multiples of it.
+Say, with a static counter on ISR.
+(modifying the frequency without making a new LUT table!)
+
+For example: With different count values we have
+500/10 = 50 Hz
+500/5 = 100 Hz
+500/4 = 125 Hz
+500/2 = 250 Hz

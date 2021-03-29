@@ -1,0 +1,37 @@
+=============================
+Pines utilizados por el ADQ
+=============================
+
+DACOUT1		-	PIO0_29		-	Pin 15
+
+ADC_0		-	PIO0_07		-	Potenciómetro
+ADC_8		-	PIO0_18		-	Pin 03
+ADC_9		-	PIO0_17		-	Pin 02
+
+USART0_TX	-	PIO0_25		-	USB VCOM (Pin 11)
+USART0_RX	-	PIO0_24		-	USB VCOM (Pin 10)
+
+USART1_TX	-	PIO0_09		-	Pin 22
+USART1_RX	-	PIO0_08		-	Pin 21
+
+Para observar el pinout del stick (y su correcta numeración) remitirse a la página
+10 del archivo:	"User_manual_LPC845_BRK.pdf".
+
+==========================
+Comunicación LPC845 -> PC
+==========================
+
+La USART0 está conectada por un conversor USB-TTL interno del LPC845 a su puerto USB
+para fácilmente comunicarse con la PC a través de él.
+
+=============================
+Debuggear el código del ADQ
+=============================
+
+El debugger del MCUXpresso utiliza el puerto USB del LPC845.
+Si quiero debuggear no puedo utilizar la USART0 como puerto de comunicación del ADQ 
+porque se pisa con el debugger.
+Para este caso debo correr el ADQ utilizando la USART1.
+La misma la sacaremos del LPC845 a través de los pines externos seleccionados, los
+cuales deben ser conectados a la PC con un cable USB utilizando un conversor USB-TTL
+externo.
